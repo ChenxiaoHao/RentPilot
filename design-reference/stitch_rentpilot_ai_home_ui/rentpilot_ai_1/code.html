@@ -1,0 +1,293 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport">
+<title>RentPilot - AI 找房对话</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            appDark: '#111111',
+            appGrayBg: '#F8F9FA',
+            appCardBg: '#F7F7F7',
+            appBorder: '#EFEFEF',
+            appTextSec: '#8E8E93',
+            appTagBg: '#F2F2F7',
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro Text"', '"PingFang SC"', '"Helvetica Neue"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Styles -->
+<style data-purpose="base-styling">
+    /* 屏蔽移动端弹性滚动多余空白并保留平滑体验 */
+    body {
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    /* 隐藏滚动条但允许滚动 */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<!-- END: Custom Styles -->
+</head>
+<body class="bg-white text-appDark flex justify-center min-h-screen antialiased">
+<!-- BEGIN: PhoneContainer -->
+<!-- 仿 iPhone 居中容器布局，自适应各屏幕 -->
+<div class="w-full max-w-[402px] min-h-[874px] bg-white flex flex-col relative pb-[168px] shadow-2xl rounded-[50px] overflow-hidden border border-gray-100 my-auto">
+<!-- BEGIN: StatusBar -->
+<!-- 顶部状态栏: 时间与系统图标 -->
+<header class="w-full pt-3.5 px-8 flex justify-between items-center bg-white z-40 shrink-0 relative h-[54px]">
+<span class="text-[14px] font-semibold tracking-tight text-black z-10">09:41</span>
+<!-- Dynamic Island 灵动岛 (宽约 125px，高约 36px，居中圆角) -->
+<div class="absolute left-1/2 -translate-x-1/2 top-2.5 w-[125px] h-[36px] bg-black rounded-full flex items-center justify-between px-3 pointer-events-none z-20">
+<div class="w-2.5 h-2.5 rounded-full bg-[#1a1a1a]"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-[#111111]"></div>
+</div>
+<div class="flex items-center space-x-2 text-black z-10">
+<!-- 信号强度 -->
+<svg class="w-4 h-3.5" fill="currentColor" viewBox="0 0 17 12">
+<rect height="3.5" rx="0.5" width="2.5" x="0" y="8.5"></rect>
+<rect height="6" rx="0.5" width="2.5" x="4.5" y="6"></rect>
+<rect height="9" rx="0.5" width="2.5" x="9" y="3"></rect>
+<rect height="12" rx="0.5" width="2.5" x="13.5" y="0"></rect>
+</svg>
+<!-- Wi-Fi 图标 -->
+<svg class="w-4 h-3.5" fill="currentColor" viewBox="0 0 16 12">
+<path d="M8 9.5a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm-4.24-3.24a6 6 0 018.48 0 .75.75 0 001.06-1.06 7.5 7.5 0 00-10.6 0 .75.75 0 101.06 1.06zm-2.12-2.12a9 9 0 0112.72 0 .75.75 0 101.06-1.06 10.5 10.5 0 00-14.84 0 .75.75 0 101.06 1.06z"></path>
+</svg>
+<!-- 电池图标 -->
+<div class="w-[22px] h-[11px] border border-black rounded-[3.5px] p-[1.5px] flex items-center relative">
+<div class="h-full w-full bg-black rounded-[1.5px]"></div>
+<div class="absolute -right-[3.5px] top-[3px] w-[2px] h-[4px] bg-black rounded-r-full"></div>
+</div>
+</div>
+</header>
+<!-- END: StatusBar -->
+<!-- BEGIN: NavigationBar -->
+<!-- 顶部导航栏: 返回键、产品名称标题、历史记录按钮 -->
+<nav class="w-full px-5 py-3 flex items-center justify-between bg-white z-30 shrink-0">
+<!-- 左侧返回按钮 -->
+<button aria-label="返回上一页" class="w-9 h-9 flex items-center justify-start text-black active:opacity-40 transition-opacity">
+<svg class="w-6 h-6 stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M15.75 19.5L8.25 12l7.5-7.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- 居中标题 (纯净无版本号) -->
+<h1 class="text-[17px] font-semibold text-black tracking-tight">RentPilot</h1>
+<!-- 右侧历史记录时钟按钮 -->
+<button aria-label="历史记录" class="w-9 h-9 flex items-center justify-end text-black active:opacity-40 transition-opacity">
+<svg class="w-[22px] h-[22px] stroke-[1.8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</nav>
+<!-- END: NavigationBar -->
+<!-- BEGIN: MainContent -->
+<main class="flex-1 overflow-y-auto no-scrollbar px-4 pt-2 pb-6 space-y-6">
+<!-- 用户提问气泡组件 -->
+<section class="flex flex-col items-end w-full" data-purpose="user-message-container">
+<!-- 提问内容 -->
+<div class="bg-appDark text-white px-4 py-3 rounded-2xl rounded-tr-sm max-w-[82%] text-[14px] leading-relaxed tracking-normal font-normal shadow-sm">
+          我在张江上班，预算 5000 元左右，想找整租一居室，通勤 30 分钟以内。
+        </div>
+<!-- 时间戳 -->
+<span class="text-[11px] text-gray-400 mt-1.5 mr-1 font-medium tracking-tight">09:41</span>
+</section>
+<!-- AI 回复内容及分析模块 -->
+<section class="flex items-start space-x-3 w-full" data-purpose="ai-response-container">
+<!-- AI 头像 -->
+<div class="w-9 h-9 rounded-full bg-appDark flex items-center justify-center shrink-0 shadow-sm mt-0.5">
+<svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+<path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path>
+</svg>
+</div>
+<!-- AI 回复气泡 -->
+<div class="bg-appCardBg text-appDark rounded-2xl rounded-tl-sm p-4 text-[14px] leading-relaxed max-w-[85%] border border-[#F0F0F0]">
+<p class="mb-3 text-black font-normal leading-[1.6]">
+            根据你的需求，我为你推荐了以下房源，主要集中在张江、唐镇、金科路、川沙等区域，通勤时间在 30 分钟以内。
+          </p>
+<!-- 结构化关键要点列表 -->
+<ul class="space-y-1.5 text-[13px] text-zinc-700">
+<li class="flex items-start">
+<span class="text-zinc-400 mr-2">•</span>
+<span class=""><strong class="font-medium text-black">预算范围：</strong>4000–5500 元</span>
+</li>
+<li class="flex items-start">
+<span class="text-zinc-400 mr-2">•</span>
+<span class=""><strong class="font-medium text-black">房源类型：</strong>整租一居室</span>
+</li>
+<li class="flex items-start">
+<span class="text-zinc-400 mr-2">•</span>
+<span class=""><strong class="font-medium text-black">通勤方式：</strong>地铁 20–30 分钟</span>
+</li>
+<li class="flex items-start">
+<span class="text-zinc-400 mr-2">•</span>
+<span class=""><strong class="font-medium text-black">推荐理由：</strong>靠近地铁站、生活配套完善、性价比高</span>
+</li>
+</ul>
+</div>
+</section>
+<!-- BEGIN: RecommendedListSection -->
+<!-- 房源推荐卡片模块 -->
+<section class="w-full pt-1" data-purpose="house-recommendations">
+<!-- 列表标题与右侧查看更多 -->
+<div class="flex items-center justify-between mb-3 px-0.5">
+<h2 class="text-[15px] font-bold text-black tracking-tight">为你推荐 6 套合适的房源</h2>
+<a class="text-[12px] text-appTextSec flex items-center hover:text-black transition-colors" href="#">
+            查看全部
+            <svg class="w-3.5 h-3.5 ml-0.5 stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M8.25 4.5l7.5 7.5-7.5 7.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+</div>
+<div class="space-y-3.5">
+<!-- 房源卡片 1 -->
+<article class="bg-white rounded-2xl border border-gray-100 p-2.5 flex space-x-3 shadow-sm hover:shadow-md transition-shadow relative" data-purpose="house-card">
+<!-- 房源照片 -->
+<div class="w-[124px] h-[98px] rounded-xl overflow-hidden shrink-0 bg-gray-100">
+<img alt="张江高科小区室内图" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXcnGCZoSuHJCWv9pIJYge5qynzLmOm1gmrFtTQ2w4lCaad1mdA3P9zbatuixUTX6RdbNAx4SfwJJFs4F2f30_eY_7RHiR9gnMNu53az4xnct3kbcKDbxLN40sKp_hXpLvOy81Vv00T-n2OXD9wiyGBxqYKtcllcCrBOyuyw0nLO1r2jExseZLRM5gkfOX1R0Y54pwxqJwoDTskdx4PhhJi6zRf6eSD2b54QrMitHPuuXfQ-1A5BpS">
+</div>
+<!-- 房源详情 -->
+<div class="flex-1 flex flex-col justify-between py-0.5 pr-1">
+<div>
+<!-- 标题与收藏爱心 -->
+<div class="flex items-start justify-between">
+<h3 class="text-[14px] font-bold text-black leading-snug">张江高科小区 一居室</h3>
+<button aria-label="收藏房源" class="text-gray-400 hover:text-black transition-colors p-0.5 -mt-0.5">
+<svg class="w-4 h-4 stroke-[1.8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- 位置与格局参数 -->
+<p class="text-[11px] text-gray-500 mt-0.5">浦东新区 · 张江镇</p>
+<p class="text-[11px] text-gray-500">45㎡ ｜ 1室1厅1卫 ｜ 精装修</p>
+<!-- 房源属性标签 -->
+<div class="flex flex-wrap gap-1 mt-1.5">
+<span class="text-[10px] bg-appTagBg text-gray-600 px-1.5 py-0.5 rounded">近地铁</span>
+<span class="text-[10px] bg-appTagBg text-gray-600 px-1.5 py-0.5 rounded">有电梯</span>
+<span class="text-[10px] bg-appTagBg text-gray-600 px-1.5 py-0.5 rounded">家具齐全</span>
+</div>
+</div>
+<!-- 价格 -->
+<div class="mt-1">
+<span class="text-[15px] font-bold text-black">¥4,800</span>
+<span class="text-[11px] text-gray-500 font-normal">/月</span>
+</div>
+</div>
+</article>
+<!-- 房源卡片 2 -->
+<article class="bg-white rounded-2xl border border-gray-100 p-2.5 flex space-x-3 shadow-sm hover:shadow-md transition-shadow relative" data-purpose="house-card">
+<!-- 房源照片 -->
+<div class="w-[124px] h-[98px] rounded-xl overflow-hidden shrink-0 bg-gray-100">
+<img alt="唐镇新苑室内图" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD947dP26IQP18NPuy2PEIvzbVgoOWvZTK-Kczt7YSfC4IwJkLBL2tGLehjyDeqLdS6-uguAz_6ZiUw3Nbyh22fO85QrkKr1zxQxTvCIOZ13tj8oOJrf1nR1-fvrsBOCMbat0YfccqDO34nT5xNCYBhL0p_ClI-feVR2pP1m50Do1U6tAdoKmFeOhPbLcxPni71KGXEoZ0uVVmzQlwS-2XA3wrQOfVIWXYO0lDs2Bu37UJSP-VJzWTq">
+</div>
+<!-- 房源详情 -->
+<div class="flex-1 flex flex-col justify-between py-0.5 pr-1">
+<div>
+<!-- 标题与收藏爱心 -->
+<div class="flex items-start justify-between">
+<h3 class="text-[14px] font-bold text-black leading-snug">唐镇新苑 一居室</h3>
+<button aria-label="收藏房源" class="text-gray-400 hover:text-black transition-colors p-0.5 -mt-0.5">
+<svg class="w-4 h-4 stroke-[1.8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- 位置与格局参数 -->
+<p class="text-[11px] text-gray-500 mt-0.5">浦东新区 · 唐镇</p>
+<p class="text-[11px] text-gray-500">42㎡ ｜ 1室1厅1卫 ｜ 精装修</p>
+<!-- 房源属性标签 -->
+<div class="flex flex-wrap gap-1 mt-1.5">
+<span class="text-[10px] bg-appTagBg text-gray-600 px-1.5 py-0.5 rounded">近地铁</span>
+<span class="text-[10px] bg-appTagBg text-gray-600 px-1.5 py-0.5 rounded">有阳台</span>
+<span class="text-[10px] bg-appTagBg text-gray-600 px-1.5 py-0.5 rounded">可做饭</span>
+</div>
+</div>
+<!-- 价格 -->
+<div class="mt-1">
+<span class="text-[15px] font-bold text-black">¥4,500</span>
+<span class="text-[11px] text-gray-500 font-normal">/月</span>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- END: RecommendedListSection -->
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: FloatingBottomControls -->
+<!-- 固定在底部的输入框与胶囊导航栏区域 -->
+<div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[402px] px-4 pb-2.5 pointer-events-none z-50 flex flex-col items-center space-y-2.5">
+<!-- 悬浮聊天输入框卡片 -->
+<div class="pointer-events-auto w-full bg-white rounded-full px-3.5 py-2 flex items-center shadow-[0_4px_20px_rgba(0,0,0,0.08)] border border-gray-100" data-purpose="chat-input-bar">
+<!-- 上传图片按钮 -->
+<button aria-label="上传参考图片" class="w-8 h-8 flex items-center justify-center text-gray-600 hover:text-black transition-colors">
+<svg class="w-5 h-5 stroke-[1.8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- 输入区域 -->
+<input class="flex-1 bg-transparent border-none text-[14px] text-black placeholder-gray-400 focus:ring-0 focus:outline-none px-2 py-1" placeholder="继续提问..." type="text">
+<!-- 发送提问黑色圆形按钮 -->
+<button aria-label="发送消息" class="w-8 h-8 rounded-full bg-appDark text-white flex items-center justify-center shrink-0 active:scale-95 transition-transform">
+<svg class="w-4 h-4 stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- 底部悬浮胶囊导航栏 (与首页规范对齐) -->
+<nav class="pointer-events-auto w-full bg-white/95 backdrop-blur-md rounded-full py-1.5 px-3 flex justify-between items-center shadow-[0_6px_25px_rgba(0,0,0,0.1)] border border-gray-100" data-purpose="capsule-tab-bar">
+<!-- 对话 Tab (Active 状态) -->
+<button aria-current="page" class="flex-1 py-1.5 px-2 flex flex-col items-center justify-center relative bg-gray-100 rounded-full">
+<svg class="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 24 24">
+<rect height="7" rx="2.5" width="7" x="3" y="3"></rect>
+<rect height="7" rx="2.5" width="7" x="14" y="3"></rect>
+<rect height="7" rx="2.5" width="7" x="3" y="14"></rect>
+<rect height="7" rx="2.5" width="7" x="14" y="14"></rect>
+</svg>
+<span class="text-[10px] font-bold text-black mt-0.5 tracking-tight">对话</span>
+</button>
+<!-- 地图 Tab -->
+<button class="flex-1 py-1.5 px-2 flex flex-col items-center justify-center text-gray-500 hover:text-black transition-colors">
+<svg class="w-5 h-5 stroke-[1.8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[10px] font-medium mt-0.5 tracking-tight">地图</span>
+</button>
+<!-- 方案 Tab -->
+<button class="flex-1 py-1.5 px-2 flex flex-col items-center justify-center text-gray-500 hover:text-black transition-colors">
+<svg class="w-5 h-5 stroke-[1.8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M6.429 9.75L2.25 12l9.75 5.25 9.75-5.25-4.179-2.25m-11.321 4.5L2.25 16.5l9.75 5.25 9.75-5.25-4.179-2.25M12 3l9.75 5.25L12 13.5 2.25 8.25 12 3z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[10px] font-medium mt-0.5 tracking-tight">方案</span>
+</button>
+<!-- 我的 Tab -->
+<button class="flex-1 py-1.5 px-2 flex flex-col items-center justify-center text-gray-500 hover:text-black transition-colors">
+<svg class="w-5 h-5 stroke-[1.8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[10px] font-medium mt-0.5 tracking-tight">我的</span>
+</button>
+</nav>
+<!-- iPhone Home Indicator 底部触控指示条 -->
+<div class="w-[140px] h-[5px] bg-black/80 rounded-full mt-1.5 mb-1 shrink-0"></div>
+</div>
+<!-- END: FloatingBottomControls -->
+</div>
+<!-- END: PhoneContainer -->
+
+
+</body></html>

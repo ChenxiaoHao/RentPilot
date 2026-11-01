@@ -1,0 +1,4 @@
+CREATE TABLE demo_listing_owner (listing_id VARCHAR(40) PRIMARY KEY REFERENCES listing(id), owner_id VARCHAR(36) NOT NULL REFERENCES member_account(id));
+CREATE TABLE demo_conversation (id VARCHAR(36) PRIMARY KEY, listing_id VARCHAR(40) NOT NULL REFERENCES demo_listing_owner(listing_id), tenant_id VARCHAR(36) NOT NULL REFERENCES member_account(id), owner_id VARCHAR(36) NOT NULL REFERENCES member_account(id), UNIQUE(listing_id, tenant_id));
+CREATE TABLE demo_message (id VARCHAR(36) PRIMARY KEY, conversation_id VARCHAR(36) NOT NULL REFERENCES demo_conversation(id), sender_id VARCHAR(36) NOT NULL REFERENCES member_account(id), content VARCHAR(2000) NOT NULL, created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE INDEX idx_demo_messages ON demo_message(conversation_id, created_at);

@@ -1,0 +1,33 @@
+import { createRouter, createWebHashHistory } from 'vue-router'
+
+export const router = createRouter({
+  history: createWebHashHistory(),
+  scrollBehavior(to, from, saved) { return to.path === from.path ? undefined : saved ?? { top: 0 } },
+  routes: [
+    { path: '/', redirect: '/chat' },
+    { path: '/chat', component: () => import('./pages/ChatPage.vue'), meta: { tab: 'chat' } },
+    { path: '/generating', component: () => import('./pages/GeneratingPage.vue'), meta: { hideNav: true } },
+    { path: '/negotiate', component: () => import('./pages/NegotiationPage.vue'), meta: { tab: 'chat' } },
+    { path: '/map', component: () => import('./pages/MapPage.vue'), meta: { tab: 'map' } },
+    { path: '/find-map', component: () => import('./pages/CatalogMapPage.vue'), meta: { tab: 'map' } },
+    { path: '/listings', component: () => import('./pages/CatalogPage.vue'), meta: { tab: 'map' } },
+    { path: '/plans', component: () => import('./pages/PlansPage.vue'), meta: { tab: 'profile' } },
+    { path: '/plans/:id', component: () => import('./pages/PlanDetailPage.vue'), meta: { tab: 'profile' } },
+    { path: '/lifesim/:id', component: () => import('./pages/LifeSimPage.vue'), meta: { tab: 'profile' } },
+    { path: '/compare', component: () => import('./pages/ComparePage.vue'), meta: { tab: 'profile' } },
+    { path: '/messages', component: () => import('./pages/MessagesPage.vue'), meta: { tab: 'messages' } },
+    { path: '/messages/:id', component: () => import('./pages/ConversationPage.vue'), meta: { tab: 'messages' } },
+    { path: '/profile', component: () => import('./pages/MemberPage.vue'), meta: { tab: 'profile' } },
+    { path: '/account', component: () => import('./pages/AccountPage.vue'), meta: { hideNav: true } },
+    { path: '/favorites', component: () => import('./pages/MemberListingsPage.vue'), meta: { tab: 'profile' } },
+    { path: '/recent', component: () => import('./pages/MemberListingsPage.vue'), meta: { tab: 'profile' } },
+    { path: '/viewings', component: () => import('./pages/ViewingsPage.vue'), meta: { tab: 'profile' } },
+    { path: '/demo/profile', component: () => import('./pages/ProfilePage.vue'), meta: { tab: 'profile' } },
+    { path: '/preferences', component: () => import('./pages/PreferencesPage.vue'), meta: { hideNav: true } },
+    { path: '/history', component: () => import('./pages/HistoryPage.vue'), meta: { tab: 'profile' } },
+    { path: '/listing/:id(SH-MOCK-\\d{6})', component: () => import('./pages/CatalogDetailPage.vue'), meta: { hideNav: true } },
+    { path: '/listing/:id', component: () => import('./pages/ListingPage.vue'), meta: { hideNav: true } },
+    { path: '/empty', component: () => import('./pages/EmptyPage.vue'), meta: { tab: 'map' } },
+    { path: '/:pathMatch(.*)*', redirect: '/' },
+  ],
+})

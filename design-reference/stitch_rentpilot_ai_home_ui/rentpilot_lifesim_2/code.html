@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100%;margin:0;padding:0;background-color:#fcf9f8;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "tertiary-fixed": "#e2e2e2", "primary": "#000000", "tertiary-container": "#1b1b1b", "on-primary-fixed-variant": "#474747", "on-error": "#ffffff", "surface-container-lowest": "#ffffff", "surface-container-high": "#ebe7e7", "on-tertiary-fixed": "#1b1b1b", "surface": "#fcf9f8", "on-surface": "#1c1b1b", "on-secondary": "#ffffff", "on-background": "#1c1b1b", "inverse-surface": "#313030", "on-primary": "#ffffff", "secondary-container": "#e3e2e2", "secondary-fixed-dim": "#c7c6c6", "surface-container-highest": "#e5e2e1", "surface-bright": "#fcf9f8", "primary-fixed": "#e2e2e2", "secondary-fixed": "#e3e2e2", "on-secondary-fixed-variant": "#464747", "on-tertiary-container": "#848484", "tertiary-fixed-dim": "#c6c6c6", "on-surface-variant": "#4c4546", "on-tertiary": "#ffffff", "inverse-on-surface": "#f3f0ef", "surface-container-low": "#f6f3f2", "error-container": "#ffdad6", "inverse-primary": "#c6c6c6", "on-secondary-fixed": "#1b1c1c", "on-primary-container": "#848484", "surface-dim": "#dcd9d9", "outline": "#7e7576", "outline-variant": "#cfc4c5", "background": "#fcf9f8", "on-tertiary-fixed-variant": "#474747", "surface-container": "#f0edec", "secondary": "#5e5e5e", "primary-container": "#1b1b1b", "surface-variant": "#e5e2e1", "error": "#ba1a1a", "surface-tint": "#5e5e5e", "on-secondary-container": "#646464", "primary-fixed-dim": "#c6c6c6", "on-error-container": "#93000a", "on-primary-fixed": "#1b1b1b", "tertiary": "#000000" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-xs": "0.25rem", "margin-sm": "1rem", "margin": "1.25rem", "space-sm": "0.5rem", "space-lg": "1.5rem", "margin-lg": "2rem", "gutter": "1rem", "gutter-lg": "1.5rem", "space-xl": "2.25rem", "space-md": "1rem", "gutter-sm": "0.75rem" }, fontFamily: { "body-sm": ["Manrope"], "label-md": ["Manrope"], "title-md": ["Manrope"], "body-md": ["Manrope"], "title-lg": ["Manrope"], "headline-lg": ["Manrope"], "headline-lg-mobile": ["Manrope"], "display-lg": ["Manrope"], "headline-md": ["Manrope"], "body-lg": ["Manrope"], "label-lg": ["Manrope"], "label-sm": ["Manrope"] }, fontSize: { "body-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.01em", fontWeight: "400" }], "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "500" }], "title-md": ["16px", { lineHeight: "22px", letterSpacing: "-0.005em", fontWeight: "600" }], "body-md": ["14px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "400" }], "title-lg": ["18px", { lineHeight: "24px", letterSpacing: "-0.01em", fontWeight: "600" }], "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.025em", fontWeight: "700" }], "headline-lg-mobile": ["26px", { lineHeight: "34px", letterSpacing: "-0.02em", fontWeight: "700" }], "display-lg": ["40px", { lineHeight: "48px", letterSpacing: "-0.03em", fontWeight: "700" }], "headline-md": ["22px", { lineHeight: "30px", letterSpacing: "-0.015em", fontWeight: "600" }], "body-lg": ["16px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }], "label-lg": ["14px", { lineHeight: "18px", letterSpacing: "0.01em", fontWeight: "600" }], "label-sm": ["10px", { lineHeight: "12px", letterSpacing: "0.04em", fontWeight: "600" }] } } } }</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface min-h-screen flex flex-col font-body-md text-body-md"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.03)]"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><button aria-label="返回" class="w-11 h-11 -ml-2 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container active:scale-95 transition-all" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[22px]">arrow_back</span></button><h1 class="font-title-md text-title-md text-on-surface tracking-tight line-clamp-1">Plan Generating</h1></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="flex-1 w-full pt-16 pb-safe px-margin bg-surface"><div class="flex flex-col w-full pb-28">
+<!-- Sub-header metadata pill -->
+<div class="flex items-center justify-between mb-4 pt-2">
+<div class="flex items-center gap-1.5 text-on-surface-variant font-label-md text-label-md">
+<span class="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
+<span>LifeSim 多场景模拟器</span>
+</div>
+<div class="px-3 py-1 bg-surface-container rounded-full text-on-surface font-label-sm text-label-sm tracking-wide">
+      方案 A · 通勤优先
+    </div>
+</div>
+<!-- Scenario Switcher (Capsule Tabs) -->
+<div class="w-full overflow-x-auto no-scrollbar -mx-margin px-margin mb-6">
+<div class="flex items-center gap-2 min-w-max py-0.5" id="scenario-tabs">
+<button class="scenario-btn h-9 px-4 rounded-full bg-primary text-on-primary font-label-md text-label-md transition-all" data-id="weekday" onclick="switchScenario('weekday')" type="button">
+        普通工作日
+      </button>
+<button class="scenario-btn h-9 px-4 rounded-full bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md transition-all shadow-sm" data-id="overtime" onclick="switchScenario('overtime')" type="button">
+        经常加班
+      </button>
+<button class="scenario-btn h-9 px-4 rounded-full bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md transition-all shadow-sm" data-id="weekend" onclick="switchScenario('weekend')" type="button">
+        周末生活
+      </button>
+<button class="scenario-btn h-9 px-4 rounded-full bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md transition-all shadow-sm" data-id="pet" onclick="switchScenario('pet')" type="button">
+        养宠物
+      </button>
+</div>
+</div>
+<!-- Realtime Metric Grid (2x2 Bento) -->
+<div class="bg-surface-container-low rounded-xl p-4 sm:p-5 mb-4 shadow-sm">
+<div class="flex items-center justify-between mb-3.5">
+<h2 class="font-title-md text-title-md text-on-surface" id="panel-title">普通工作日 · 综合评估</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Dynamic Profile</span>
+</div>
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Metric 1 -->
+<div class="bg-surface-container-lowest rounded-lg p-3.5 flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-label-sm text-label-sm">每月居住总开销</span>
+<span class="material-symbols-outlined text-[16px]">payments</span>
+</div>
+<div>
+<div class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight" id="m-cost">¥6,450</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 line-clamp-1" id="m-cost-sub">房租 ¥4,800 + 水网交通简餐</div>
+</div>
+</div>
+<!-- Metric 2 -->
+<div class="bg-surface-container-lowest rounded-lg p-3.5 flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-label-sm text-label-sm">每日通勤耗时</span>
+<span class="material-symbols-outlined text-[16px]">directions_walk</span>
+</div>
+<div>
+<div class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight" id="m-commute">24 <span class="font-body-sm text-body-sm">分钟/天</span></div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 line-clamp-1" id="m-commute-sub">双向往返直达</div>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="bg-surface-container-lowest rounded-lg p-3.5 flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-label-sm text-label-sm">可支配自由时间</span>
+<span class="material-symbols-outlined text-[16px]">hourglass_empty</span>
+</div>
+<div>
+<div class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight" id="m-free">4.5 <span class="font-body-sm text-body-sm">小时/晚</span></div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 line-clamp-1" id="m-free-sub">充裕私享无干扰</div>
+</div>
+</div>
+<!-- Metric 4 -->
+<div class="bg-surface-container-lowest rounded-lg p-3.5 flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-label-sm text-label-sm">生活惬意度指数</span>
+<span class="material-symbols-outlined text-[16px]">hotel_class</span>
+</div>
+<div>
+<div class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight" id="m-score">94 <span class="font-body-sm text-body-sm">分</span></div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 line-clamp-1" id="m-score-sub">高密度生活配套</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Visual Context Snapshot & Contrast Card -->
+<div class="bg-surface-container-low rounded-xl p-4 sm:p-5 mb-5 shadow-sm">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px] text-on-surface">insights</span>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="font-title-md text-title-md text-on-surface mb-1">场景对比观察</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed" id="contrast-note">
+          场景对比观察：若切换为「经常加班」场景，打车报销与外卖夜宵支出将使月开销增加约 ¥600，但步行通勤将为你每天节省 40 分钟晚归体力；若切换为「养宠物」，周边 300 米内有 2 家宠物诊所与绿地公园。
+        </p>
+</div>
+</div>
+<!-- Architectural Lifestyle Graphic Element -->
+<div class="mt-4 pt-3.5 border-t border-surface-container-high/60 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">schedule</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant" id="sync-status">基于历史生活轨迹推演</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface font-label-sm text-label-sm">
+<span>置信度 96.8%</span>
+</div>
+</div>
+</div>
+<!-- 24H Lifestyle Timeline Section -->
+<div class="flex flex-col mb-4">
+<div class="flex items-center justify-between mb-3 px-1">
+<h3 class="font-title-md text-title-md text-on-surface">24H 生活动线片段</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant" id="timeline-badge">典型常态日常</span>
+</div>
+<!-- Timeline Container -->
+<div class="bg-surface-container-low rounded-xl p-4 sm:p-5 relative shadow-sm">
+<div class="space-y-4" id="timeline-flow">
+<!-- Item 1 -->
+<div class="flex items-start gap-3 relative">
+<div class="w-12 pt-0.5 text-right font-label-md text-label-md text-on-surface shrink-0" data-time="1">08:30</div>
+<div class="relative flex flex-col items-center self-stretch">
+<div class="w-2.5 h-2.5 rounded-full bg-primary mt-1.5 shrink-0"></div>
+<div class="w-0.5 bg-surface-container-highest flex-1 my-1"></div>
+</div>
+<div class="flex-1 bg-surface-container-lowest p-3 rounded-lg shadow-sm">
+<div class="font-title-md text-title-md text-on-surface" data-title="1">【从容晨起】</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-1" data-desc="1">步行 5 分钟到路口买燕麦拿铁。无需挤早高峰地铁，阳光洒落街道。</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-start gap-3 relative">
+<div class="w-12 pt-0.5 text-right font-label-md text-label-md text-on-surface shrink-0" data-time="2">18:40</div>
+<div class="relative flex flex-col items-center self-stretch">
+<div class="w-2.5 h-2.5 rounded-full bg-primary mt-1.5 shrink-0"></div>
+<div class="w-0.5 bg-surface-container-highest flex-1 my-1"></div>
+</div>
+<div class="flex-1 bg-surface-container-lowest p-3 rounded-lg shadow-sm">
+<div class="font-title-md text-title-md text-on-surface" data-title="2">【准点归家】</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-1" data-desc="2">伴着晚霞步行回小区，顺道在楼下生鲜超市采购新鲜时蔬与牛排。</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex items-start gap-3 relative">
+<div class="w-12 pt-0.5 text-right font-label-md text-label-md text-on-surface shrink-0" data-time="3">20:00</div>
+<div class="relative flex flex-col items-center self-stretch">
+<div class="w-2.5 h-2.5 rounded-full bg-primary mt-1.5 shrink-0"></div>
+</div>
+<div class="flex-1 bg-surface-container-lowest p-3 rounded-lg shadow-sm">
+<div class="font-title-md text-title-md text-on-surface" data-title="3">【独处自律】</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-1" data-desc="3">去社区健身房流汗 1 小时，享受完全属于自己的夜晚与平静阅读。</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Floating CTA Container -->
+<div class="fixed bottom-0 left-0 w-full p-4 bg-surface/90 backdrop-blur-xl z-40 border-t border-surface-container-high/50 flex justify-center">
+<div class="w-full max-w-lg">
+<button class="w-full h-13 py-3.5 px-6 rounded-full bg-primary text-on-primary font-title-md text-title-md flex items-center justify-center gap-2 active:opacity-90 shadow-lg transition-all" onclick="confirmScenario()" type="button">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+<span>以此场景作为核心标准</span>
+</button>
+</div>
+</div>
+<!-- Micro feedback toast -->
+<div class="fixed top-20 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-inverse-surface text-inverse-on-surface font-label-md text-label-md opacity-0 pointer-events-none transition-all duration-300 z-50 shadow-md" id="toast">
+    已更新生活模拟场景
+  </div>
+</div>
+<script>
+  const scenarioData = {
+    weekday: {
+      name: "普通工作日",
+      panelTitle: "普通工作日 · 综合评估",
+      cost: "¥6,450",
+      costSub: "房租 ¥4,800 + 水网交通简餐",
+      commute: "24",
+      commuteUnit: "分钟/天",
+      commuteSub: "往返直达",
+      free: "4.5",
+      freeSub: "不加班状态下的充裕私享时间",
+      score: "94",
+      scoreSub: "高密度生活圈配套完善",
+      note: "场景对比观察：若切换为「经常加班」场景，打车报销与外卖夜宵支出将使月开销增加约 ¥600，但步行通勤将为你每天节省 40 分钟晚归体力；若切换为「养宠物」，周边 300 米内有 2 家宠物诊所与绿地公园。",
+      badge: "典型常态日常",
+      timeline: [
+        { time: "08:30", title: "【从容晨起】", desc: "步行 5 分钟到路口买燕麦拿铁。无需挤早高峰地铁，晨光正好。" },
+        { time: "18:40", title: "【准点归家】", desc: "伴着晚霞步行回小区，顺道在楼下生鲜超市采购当日晚餐。" },
+        { time: "20:00", title: "【独处自律】", desc: "去社区健身房流汗 1 小时，享受完全属于自己的夜晚。" }
+      ]
+    },
+    overtime: {
+      name: "经常加班",
+      panelTitle: "经常加班 · 综合评估",
+      cost: "¥7,050",
+      costSub: "含夜宵/加急打车补贴后支出",
+      commute: "18",
+      commuteUnit: "分钟/天",
+      commuteSub: "深夜步行/短距出租直达",
+      free: "1.8",
+      freeSub: "睡前深度卸压与睡眠留白",
+      score: "87",
+      scoreSub: "极致近距抵御体力消耗",
+      note: "高频加班下，住处距公司 800m 的优势成倍放大。省去每日至少 45 分钟晚归周折，下楼即有 24 小时便利店与温热简餐供给。",
+      badge: "高压抗疲劳动线",
+      timeline: [
+        { time: "09:15", title: "【多睡 40 分】", desc: "错开打卡早峰，快速洗漱后步行 8 分钟滑入工位。" },
+        { time: "21:30", title: "【深夜轻归】", desc: "告别办公室，夜风微凉，5 分钟无感漫步回到静谧居室。" },
+        { time: "22:15", title: "【静谧修复】", desc: "泡热水澡，恒温空调与隔音双层玻璃隔绝城市嘈杂。" }
+      ]
+    },
+    weekend: {
+      name: "周末生活",
+      panelTitle: "周末生活 · 综合评估",
+      cost: "¥6,800",
+      costSub: "含周边探店咖啡与文娱消费",
+      commute: "0",
+      commuteUnit: "分钟/天",
+      commuteSub: "15分钟慢行人文生活圈",
+      free: "12.0",
+      freeSub: "全天候无受限探索时钟",
+      score: "96",
+      scoreSub: "街区微度假步行可达",
+      note: "周末 1 公里内涵盖独立烘焙、艺术书店与社区市集。不仅解决居住本身，更将周末社交与休闲成本压缩至最低。",
+      badge: "街区微度假节奏",
+      timeline: [
+        { time: "10:00", title: "【自然唤醒】", desc: "窗边自然光唤醒，自制手冲，在阳台享受无闹钟早晨。" },
+        { time: "14:30", title: "【漫步漫读】", desc: "拐角书店翻看建筑画册，偶遇街区常客的法斗与柴犬。" },
+        { time: "19:00", title: "【邻里欢聚】", desc: "步行至小酒馆与友人小酌，结束后微醺步行 3 分钟到家。" }
+      ]
+    },
+    pet: {
+      name: "养宠物",
+      panelTitle: "养宠物 · 综合评估",
+      cost: "¥7,250",
+      costSub: "房租 + 主粮零食驱虫养护预算",
+      commute: "24",
+      commuteUnit: "分钟/天",
+      commuteSub: "留足每日遛狗巡回动线",
+      free: "3.5",
+      freeSub: "高质量伴宠互动时光",
+      score: "92",
+      scoreSub: "300米内宠物友好设施覆盖",
+      note: "周边绿地充足，楼下便是带草坪的口袋公园。2 家合规宠物医院均在步行 4 分钟范围内，夜间急诊亦无后顾之忧。",
+      badge: "人宠共融动线",
+      timeline: [
+        { time: "07:30", title: "【晨间遛宠】", desc: "在楼下口袋公园草坪慢走 25 分钟，开启活力早晨。" },
+        { time: "18:40", title: "【摇尾迎接】", desc: "推开门瞬间的暖心治愈，换好衣服下楼进行晚间长巡。" },
+        { time: "21:00", title: "【静音梳毛】", desc: "地毯上伴宠梳毛与洁齿，享受规律而安心的生命共鸣。" }
+      ]
+    }
+  };
+
+  let currentScenario = 'weekday';
+
+  function switchScenario(id) {
+    if (currentScenario === id) return;
+    currentScenario = id;
+
+    // Update buttons
+    const btns = document.querySelectorAll('.scenario-btn');
+    btns.forEach(btn => {
+      if (btn.getAttribute('data-id') === id) {
+        btn.classList.remove('bg-surface-container-lowest', 'text-on-surface-variant', 'shadow-sm');
+        btn.classList.add('bg-primary', 'text-on-primary');
+      } else {
+        btn.classList.remove('bg-primary', 'text-on-primary');
+        btn.classList.add('bg-surface-container-lowest', 'text-on-surface-variant', 'shadow-sm');
+      }
+    });
+
+    const data = scenarioData[id];
+    if (!data) return;
+
+    // Update Metrics
+    document.getElementById('panel-title').innerText = data.panelTitle;
+    document.getElementById('m-cost').innerText = data.cost;
+    document.getElementById('m-cost-sub').innerText = data.costSub;
+
+    document.getElementById('m-commute').innerHTML = `${data.commute} <span class="font-body-sm text-body-sm">${data.commuteUnit}</span>`;
+    document.getElementById('m-commute-sub').innerText = data.commuteSub;
+
+    document.getElementById('m-free').innerHTML = `${data.free} <span class="font-body-sm text-body-sm">小时/晚</span>`;
+    document.getElementById('m-free-sub').innerText = data.freeSub;
+
+    document.getElementById('m-score').innerHTML = `${data.score} <span class="font-body-sm text-body-sm">分</span>`;
+    document.getElementById('m-score-sub').innerText = data.scoreSub;
+
+    // Update Note & badge
+    document.getElementById('contrast-note').innerText = data.note;
+    document.getElementById('timeline-badge').innerText = data.badge;
+
+    // Update Timeline items
+    data.timeline.forEach((item, index) => {
+      const idx = index + 1;
+      const timeEl = document.querySelector(`[data-time="${idx}"]`);
+      const titleEl = document.querySelector(`[data-title="${idx}"]`);
+      const descEl = document.querySelector(`[data-desc="${idx}"]`);
+      if (timeEl) timeEl.innerText = item.time;
+      if (titleEl) titleEl.innerText = item.title;
+      if (descEl) descEl.innerText = item.desc;
+    });
+
+    showToast(`已切换至：${data.name}`);
+  }
+
+  function confirmScenario() {
+    const data = scenarioData[currentScenario];
+    showToast(`已锁定「${data.name}」为核心测算标准`);
+  }
+
+  function showToast(text) {
+    const toast = document.getElementById('toast');
+    if (!toast) return;
+    toast.innerText = text;
+    toast.classList.remove('opacity-0', 'pointer-events-none');
+    toast.classList.add('opacity-100');
+    setTimeout(() => {
+      toast.classList.remove('opacity-100');
+      toast.classList.add('opacity-0', 'pointer-events-none');
+    }, 1800);
+  }
+</script></main></body></html>

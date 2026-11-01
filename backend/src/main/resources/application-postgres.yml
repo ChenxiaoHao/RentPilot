@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: ${RENTPILOT_DB_URL}
+    driver-class-name: org.postgresql.Driver
+    username: ${RENTPILOT_DB_USERNAME}
+    password: ${RENTPILOT_DB_PASSWORD}

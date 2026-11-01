@@ -1,0 +1,8 @@
+import { it, expect, vi, afterEach } from 'vitest'
+import { searchAI } from '../src/services/ai'
+const base={status:'NEEDS_INPUT',message:'选择地点',criteria:{},recommendations:[],total:0,limitations:[],dataKind:'SIMULATED',source:{id:'x',rowCount:1,sha256:'a'.repeat(64),dataKind:'SIMULATED'},engine:'SPRING_AI'}
+afterEach(()=>vi.unstubAllGlobals())
+it('sends an explicit workplace selection',async()=>{const fetch=vi.fn().mockResolvedValue(new Response(JSON.stringify(base)));vi.stubGlobal('fetch',fetch);await searchAI([{role:'user',content:'选择'}],new AbortController().signal,'poi');expect(JSON.parse(fetch.mock.calls[0]![1].body).workplaceId).toBe('poi')})
+it('rejects invalid workplace coordinates',async()=>{vi.stubGlobal('fetch',vi.fn().mockResolvedValue(new Response(JSON.stringify({...base,workplaceCandidates:[{id:'x',name:'x',address:'x',district:'x',adcode:'310000',longitude:999,latitude:31}]}))));await expect(searchAI([],new AbortController().signal)).rejects.toThrow('数据不完整')})
+it('accepts absent optional fields from the legacy server',async()=>{vi.stubGlobal('fetch',vi.fn().mockResolvedValue(new Response(JSON.stringify({...base,commute:null,workplaceCandidates:null}))));await expect(searchAI([],new AbortController().signal)).resolves.toMatchObject({status:'NEEDS_INPUT'})})
+it('rejects malformed commute summaries',async()=>{vi.stubGlobal('fetch',vi.fn().mockResolvedValue(new Response(JSON.stringify({...base,commute:{state:'CHECKED',mode:'FLYING',checkedCount:1,candidateCount:1,unverifiedCount:0,coverage:'COMPLETE',estimated:true}}))));await expect(searchAI([],new AbortController().signal)).rejects.toThrow('数据不完整')})

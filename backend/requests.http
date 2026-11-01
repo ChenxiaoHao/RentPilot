@@ -1,0 +1,35 @@
+### 数据集健康和来源
+GET http://127.0.0.1:8080/api/health
+
+### 第1页；页码从0开始
+GET http://127.0.0.1:8080/api/listings?page=0&size=20
+
+### 浦东整租一居，预算3000元内，租金升序
+GET http://127.0.0.1:8080/api/listings?district=浦东新区&rentalType=ENTIRE&bedrooms=1&maxRent=3000&sort=rentAsc
+
+### 关键字与设施筛选
+GET http://127.0.0.1:8080/api/listings?q=潍坊一村&privateBathroom=YES
+
+### 地铁步行20分钟内；此字段不是到工作地的通勤时间
+GET http://127.0.0.1:8080/api/listings?maxMetroWalkMinutes=20&metroLine=1号线
+
+### 坐标待核验的14条
+GET http://127.0.0.1:8080/api/listings?hasCoordinates=false
+
+### 缺失坐标和未知宠物设施保持原样
+GET http://127.0.0.1:8080/api/listings/SH-MOCK-000201
+
+### 区、街镇、出租方式、卧室数、地铁线路与数据统计
+GET http://127.0.0.1:8080/api/listing-filters
+
+### 地图可视范围（经纬度为 GCJ-02，含边界）；无坐标房源不会返回
+GET http://127.0.0.1:8080/api/listings/map?minLongitude=121.45&minLatitude=31.15&maxLongitude=121.60&maxLatitude=31.30&limit=100
+
+### 地图范围内组合筛选并限制返回数量
+GET http://127.0.0.1:8080/api/listings/map?minLongitude=120&minLatitude=30&maxLongitude=123&maxLatitude=32.5&district=浦东新区&maxRent=3000&limit=50
+
+### 无结果：200和空数组
+GET http://127.0.0.1:8080/api/listings?maxRent=1
+
+### 400：未知条件不得被忽略
+GET http://127.0.0.1:8080/api/listings?commute=30

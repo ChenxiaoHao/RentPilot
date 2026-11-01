@@ -1,0 +1,1 @@
+ALTER TABLE living_plan_version ADD COLUMN lifesim_json TEXT;

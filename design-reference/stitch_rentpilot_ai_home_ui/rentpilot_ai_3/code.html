@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100%;margin:0;padding:0;background-color:#fcf9f8;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "tertiary-fixed": "#e2e2e2", "primary": "#000000", "tertiary-container": "#1b1b1b", "on-primary-fixed-variant": "#474747", "on-error": "#ffffff", "surface-container-lowest": "#ffffff", "surface-container-high": "#ebe7e7", "on-tertiary-fixed": "#1b1b1b", "surface": "#fcf9f8", "on-surface": "#1c1b1b", "on-secondary": "#ffffff", "on-background": "#1c1b1b", "inverse-surface": "#313030", "on-primary": "#ffffff", "secondary-container": "#e3e2e2", "secondary-fixed-dim": "#c7c6c6", "surface-container-highest": "#e5e2e1", "surface-bright": "#fcf9f8", "primary-fixed": "#e2e2e2", "secondary-fixed": "#e3e2e2", "on-secondary-fixed-variant": "#464747", "on-tertiary-container": "#848484", "tertiary-fixed-dim": "#c6c6c6", "on-surface-variant": "#4c4546", "on-tertiary": "#ffffff", "inverse-on-surface": "#f3f0ef", "surface-container-low": "#f6f3f2", "error-container": "#ffdad6", "inverse-primary": "#c6c6c6", "on-secondary-fixed": "#1b1c1c", "on-primary-container": "#848484", "surface-dim": "#dcd9d9", "outline": "#7e7576", "outline-variant": "#cfc4c5", "background": "#fcf9f8", "on-tertiary-fixed-variant": "#474747", "surface-container": "#f0edec", "secondary": "#5e5e5e", "primary-container": "#1b1b1b", "surface-variant": "#e5e2e1", "error": "#ba1a1a", "surface-tint": "#5e5e5e", "on-secondary-container": "#646464", "primary-fixed-dim": "#c6c6c6", "on-error-container": "#93000a", "on-primary-fixed": "#1b1b1b", "tertiary": "#000000" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-xs": "0.25rem", "margin-sm": "1rem", "margin": "1.25rem", "space-sm": "0.5rem", "space-lg": "1.5rem", "margin-lg": "2rem", "gutter": "1rem", "gutter-lg": "1.5rem", "space-xl": "2.25rem", "space-md": "1rem", "gutter-sm": "0.75rem" }, fontFamily: { "body-sm": ["Manrope"], "label-md": ["Manrope"], "title-md": ["Manrope"], "body-md": ["Manrope"], "title-lg": ["Manrope"], "headline-lg": ["Manrope"], "headline-lg-mobile": ["Manrope"], "display-lg": ["Manrope"], "headline-md": ["Manrope"], "body-lg": ["Manrope"], "label-lg": ["Manrope"], "label-sm": ["Manrope"] }, fontSize: { "body-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.01em", fontWeight: "400" }], "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "500" }], "title-md": ["16px", { lineHeight: "22px", letterSpacing: "-0.005em", fontWeight: "600" }], "body-md": ["14px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "400" }], "title-lg": ["18px", { lineHeight: "24px", letterSpacing: "-0.01em", fontWeight: "600" }], "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.025em", fontWeight: "700" }], "headline-lg-mobile": ["26px", { lineHeight: "34px", letterSpacing: "-0.02em", fontWeight: "700" }], "display-lg": ["40px", { lineHeight: "48px", letterSpacing: "-0.03em", fontWeight: "700" }], "headline-md": ["22px", { lineHeight: "30px", letterSpacing: "-0.015em", fontWeight: "600" }], "body-lg": ["16px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }], "label-lg": ["14px", { lineHeight: "18px", letterSpacing: "0.01em", fontWeight: "600" }], "label-sm": ["10px", { lineHeight: "12px", letterSpacing: "0.04em", fontWeight: "600" }] } } } }</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface min-h-screen flex flex-col font-body-md text-body-md"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.03)]"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-2"><span class="font-title-lg text-title-lg tracking-tight text-on-surface">RentPilot</span><span class="px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-label-sm text-secondary tracking-wider uppercase">AI</span></div><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 w-full pt-16 pb-28 px-margin bg-surface"><div class="flex flex-col w-full">
+<!-- Top Utility Bar inside main content slot -->
+<div class="flex items-center justify-between pb-space-md">
+<button aria-label="返回上一步" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface active:bg-secondary-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-secondary tracking-wider">需求深度梳理</span>
+</div>
+<button aria-label="查看历史记录" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface active:bg-secondary-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">history</span>
+</button>
+</div>
+<!-- Dialogue Stream -->
+<div class="flex flex-col gap-y-space-lg pb-32">
+<!-- Turn 1: User Prompt -->
+<div class="flex flex-col items-end">
+<div class="max-w-[85%] rounded-xl rounded-tr-none bg-primary text-on-primary px-space-md py-3 shadow-sm">
+<p class="font-body-md text-body-md leading-relaxed">
+          我想在上海租房，但对具体区域不太熟悉。
+        </p>
+</div>
+<span class="font-label-sm text-label-sm text-secondary mt-1 px-1">10:24</span>
+</div>
+<!-- Turn 2: AI Clarification & Guidance -->
+<div class="flex flex-col items-start">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-[14px]">auto_awesome</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">RentPilot AI</span>
+</div>
+<div class="max-w-[92%] rounded-xl rounded-tl-none bg-surface-container-lowest text-on-surface p-space-md shadow-sm">
+<p class="font-body-md text-body-md leading-relaxed">
+          没问题，我们可以一步步梳理。为了帮你规划适合的生活节奏，先聊聊最关键的几个因素：
+        </p>
+<div class="mt-3 pt-3 flex flex-col gap-2 bg-surface-container-low rounded-lg p-3">
+<div class="flex items-start gap-2">
+<span class="font-label-sm text-label-sm text-secondary mt-0.5">01</span>
+<span class="font-body-md text-body-md text-on-surface">你的工作地或常去区域在哪里？</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="font-label-sm text-label-sm text-secondary mt-0.5">02</span>
+<span class="font-body-md text-body-md text-on-surface">每月预期的租金预算大概是多少？</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="font-label-sm text-label-sm text-secondary mt-0.5">03</span>
+<span class="font-body-md text-body-md text-on-surface">你倾向于独居还是合租？每天能接受多长的通勤时间？</span>
+</div>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary mt-1 px-1">10:25</span>
+</div>
+<!-- Turn 3: User Quick Parameters Reply -->
+<div class="flex flex-col items-end">
+<div class="max-w-[88%] rounded-xl rounded-tr-none bg-primary text-on-primary px-space-md py-3 shadow-sm">
+<p class="font-body-md text-body-md leading-relaxed">
+          在张江高科上班，预算 4500-5000 左右，想整租一居室，单程通勤最好 30 分钟内。
+        </p>
+</div>
+<!-- Extracted Tags Matrix for Delight / Clarity -->
+<div class="flex flex-wrap justify-end gap-1.5 mt-2">
+<span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-surface font-label-sm text-label-sm">
+          张江高科
+        </span>
+<span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-surface font-label-sm text-label-sm">
+          ¥4500-5000/月
+        </span>
+<span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-surface font-label-sm text-label-sm">
+          整租一居
+        </span>
+<span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-surface font-label-sm text-label-sm">
+          ≤30分钟
+        </span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary mt-1 px-1">10:26</span>
+</div>
+<!-- Turn 4: AI Heuristic Deep Dive & Transit Mapping -->
+<div class="flex flex-col items-start">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-[14px]">auto_awesome</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">RentPilot AI</span>
+</div>
+<div class="max-w-[95%] rounded-xl rounded-tl-none bg-surface-container-lowest text-on-surface p-space-md shadow-sm flex flex-col gap-3">
+<p class="font-body-md text-body-md leading-relaxed">
+          收到，工作地在张江高科，4500-5000 元整租 30 分钟以内是一个比较明确的范围。
+        </p>
+<!-- Dynamic Transit Scope Card -->
+<div class="rounded-lg bg-surface-container-low p-3 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">通勤走廊初筛</span>
+<span class="font-label-sm text-label-sm text-secondary">3条高匹配线路</span>
+</div>
+<div class="flex items-center gap-2 pt-1">
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm flex items-center justify-center">2</span>
+<span class="font-body-md text-body-md text-on-surface">2 号线：张江高科周边、唐镇、川沙</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm">13</span>
+<span class="font-body-md text-body-md text-on-surface">13 号线：张江路周边生活圈</span>
+</div>
+</div>
+<p class="font-body-md text-body-md leading-relaxed">
+          想进一步了解你的生活偏好：
+        </p>
+<!-- Clarification Question Module -->
+<div class="rounded-lg bg-surface-container p-3.5">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary mt-0.5">explore</span>
+<p class="font-body-md text-body-md text-on-surface leading-snug">
+              相比更短的步行距离，你更看重周边的生活便利度（如大型超市、咖啡馆、健身房），还是更看重小区的安静程度和绿化采光？
+            </p>
+</div>
+</div>
+<!-- Quick Interaction Suggestions -->
+<div class="flex flex-col gap-2 pt-1" id="quick-replies">
+<button class="quick-chip text-left w-full px-3 py-2.5 rounded-lg bg-surface text-on-surface font-body-sm text-body-sm active:bg-secondary-container transition-colors flex items-center justify-between" type="button">
+<span>更看重生活便利度，下楼能喝咖啡买生鲜</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">north_east</span>
+</button>
+<button class="quick-chip text-left w-full px-3 py-2.5 rounded-lg bg-surface text-on-surface font-body-sm text-body-sm active:bg-secondary-container transition-colors flex items-center justify-between" type="button">
+<span>偏向安静居住环境，楼间距宽、绿化采光好</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">north_east</span>
+</button>
+<button class="quick-chip text-left w-full px-3 py-2.5 rounded-lg bg-surface text-on-surface font-body-sm text-body-sm active:bg-secondary-container transition-colors flex items-center justify-between" type="button">
+<span>希望能靠近健身房，跑步距离内有公园</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">north_east</span>
+</button>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary mt-1 px-1">10:26</span>
+</div>
+</div>
+<!-- Floating Input Deck pinned above bottom floating navigation shell -->
+<div class="fixed bottom-24 left-0 right-0 px-margin z-40 pointer-events-none flex justify-center">
+<div class="w-full max-w-lg pointer-events-auto bg-surface-container-lowest/90 backdrop-blur-xl rounded-xl p-2 shadow-[0_12px_32px_rgba(0,0,0,0.06),0_2px_6px_rgba(0,0,0,0.02)] flex items-end gap-2">
+<div class="flex-1 min-w-0 pl-2 py-1">
+<textarea class="w-full resize-none bg-transparent text-on-surface placeholder:text-secondary font-body-md text-body-md focus:outline-none max-h-24 leading-relaxed" id="ai-chat-input" placeholder="告诉 AI 你的具体想法，例如‘希望靠近健身房’..." rows="1"></textarea>
+</div>
+<button aria-label="发送消息" class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 active:scale-95 transition-transform" id="send-btn" type="button">
+<span class="material-symbols-outlined text-[20px]">arrow_upward</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    // Quick chips autofill interaction
+    var textarea = document.getElementById('ai-chat-input');
+    var sendBtn = document.getElementById('send-btn');
+    var chips = document.querySelectorAll('.quick-chip');
+
+    chips.forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        var text = chip.querySelector('span:first-child').innerText;
+        if (textarea) {
+          textarea.value = text;
+          textarea.focus();
+        }
+      });
+    });
+
+    if (sendBtn && textarea) {
+      sendBtn.addEventListener('click', function() {
+        if (!textarea.value.trim()) return;
+        // UX micro-press feedback
+        textarea.value = '';
+      });
+    }
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe pointer-events-none flex justify-center" data-active-classes="bg-secondary-container text-on-surface"><div class="pointer-events-auto mb-5 mx-margin px-space-xs py-1.5 h-16 rounded-full bg-surface-container-lowest/85 backdrop-blur-xl shadow-[0_12px_32px_rgba(0,0,0,0.06),0_2px_6px_rgba(0,0,0,0.02)] flex items-center gap-1"><a aria-current="page" class="flex flex-col items-center justify-center w-16 h-12 rounded-full transition-all bg-secondary-container text-on-surface" data-path="ai-chat" href="#"><span class="material-symbols-outlined text-[20px]">chat_bubble</span><span class="font-label-sm text-label-sm mt-0.5">对话</span></a><a class="flex flex-col items-center justify-center w-16 h-12 rounded-full text-secondary transition-all" data-path="map-explore" href="#"><span class="material-symbols-outlined text-[20px]">explore</span><span class="font-label-sm text-label-sm mt-0.5">地图</span></a><a class="flex flex-col items-center justify-center w-16 h-12 rounded-full text-secondary transition-all" data-path="solutions" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="font-label-sm text-label-sm mt-0.5">方案</span></a><a class="flex flex-col items-center justify-center w-16 h-12 rounded-full text-secondary transition-all" data-path="profile" href="#"><span class="material-symbols-outlined text-[20px]">account_circle</span><span class="font-label-sm text-label-sm mt-0.5">我的</span></a></div></nav></body></html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-surface-container-lowest" lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><title>RentPilot</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "secondary-container": "#e3e2e2", "surface-container-high": "#ebe7e7", "error": "#ba1a1a", "surface-container-low": "#f6f3f2", "secondary-fixed-dim": "#c7c6c6", "on-secondary-fixed": "#1b1c1c", "outline-variant": "#cfc4c5", "primary-fixed-dim": "#c6c6c6", "inverse-surface": "#313030", "surface-bright": "#fcf9f8", "surface-container-lowest": "#ffffff", "surface-dim": "#dcd9d9", "tertiary-fixed": "#e2e2e2", "surface": "#fcf9f8", "on-primary": "#ffffff", "inverse-primary": "#c6c6c6", "surface-tint": "#5e5e5e", "on-error-container": "#93000a", "on-error": "#ffffff", "on-primary-fixed": "#1b1b1b", "on-primary-fixed-variant": "#474747", "background": "#fcf9f8", "on-surface": "#1c1b1b", "on-tertiary-fixed": "#1b1b1b", "error-container": "#ffdad6", "on-secondary-container": "#646464", "surface-container": "#f0edec", "on-tertiary": "#ffffff", "surface-container-highest": "#e5e2e1", "on-tertiary-fixed-variant": "#474747", "primary": "#000000", "tertiary-fixed-dim": "#c6c6c6", "tertiary": "#000000", "secondary": "#5e5e5e", "primary-fixed": "#e2e2e2", "on-secondary-fixed-variant": "#464747", "on-background": "#1c1b1b", "outline": "#7e7576", "on-secondary": "#ffffff", "surface-variant": "#e5e2e1", "tertiary-container": "#1b1b1b", "on-tertiary-container": "#848484", "primary-container": "#1b1b1b", "secondary-fixed": "#e3e2e2", "on-surface-variant": "#4c4546", "on-primary-container": "#848484", "inverse-on-surface": "#f3f0ef" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "gutter-sm": "0.75rem", "space-xl": "2.25rem", "space-lg": "1.5rem", "space-md": "1rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "margin-lg": "2rem", "gutter": "1rem", "gutter-lg": "1.5rem", "margin": "1.25rem", "margin-sm": "1rem" }, fontFamily: { "title-md": ["Manrope"], "headline-md": ["Manrope"], "body-md": ["Manrope"], "headline-lg": ["Manrope"], "display-lg": ["Manrope"], "label-lg": ["Manrope"], "body-lg": ["Manrope"], "label-md": ["Manrope"], "body-sm": ["Manrope"], "label-sm": ["Manrope"], "headline-lg-mobile": ["Manrope"], "title-lg": ["Manrope"] }, fontSize: { "title-md": ["16px", { lineHeight: "22px", letterSpacing: "-0.005em", fontWeight: "600" }], "headline-md": ["22px", { lineHeight: "30px", letterSpacing: "-0.015em", fontWeight: "600" }], "body-md": ["14px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "400" }], "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.025em", fontWeight: "700" }], "display-lg": ["40px", { lineHeight: "48px", letterSpacing: "-0.03em", fontWeight: "700" }], "label-lg": ["14px", { lineHeight: "18px", letterSpacing: "0.01em", fontWeight: "600" }], "body-lg": ["16px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }], "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "500" }], "body-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.01em", fontWeight: "400" }], "label-sm": ["10px", { lineHeight: "12px", letterSpacing: "0.04em", fontWeight: "600" }], "headline-lg-mobile": ["26px", { lineHeight: "34px", letterSpacing: "-0.02em", fontWeight: "700" }], "title-lg": ["18px", { lineHeight: "24px", letterSpacing: "-0.01em", fontWeight: "600" }] } } } };</script><style>@layer base{body{overscroll-behavior:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface-container-lowest font-body-md text-on-surface antialiased flex flex-col min-h-screen selection:bg-secondary-container"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/80 backdrop-blur-xl"><div class="relative w-full h-[54px] px-7 flex items-center justify-between"><span class="text-body-sm font-label-md text-on-surface font-semibold tracking-tight">09:41</span><div class="absolute left-1/2 -translate-x-1/2 top-[10px] w-[125px] h-[36px] bg-primary rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.06)] flex items-center justify-between px-3"><div class="w-3 h-3 rounded-full bg-[#161616]"></div><div class="w-2.5 h-2.5 rounded-full bg-[#111111]"></div></div><div class="flex items-center gap-1.5 text-on-surface"><span class="material-symbols-outlined text-[15px]">signal_cellular_4_bar</span><span class="material-symbols-outlined text-[15px]">wifi</span><span class="material-symbols-outlined text-[19px]">battery_full</span></div></div><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-1 -ml-2"><button aria-label="Back" class="h-11 px-2.5 rounded-full flex items-center gap-1 text-primary hover:bg-surface-container-high transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[20px]">arrow_back_ios_new</span><span class="font-label-lg text-label-lg font-medium">RentPilot</span></button></div><div class="flex items-center gap-1"><button aria-label="Share" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-primary"><span class="material-symbols-outlined text-[20px]">ios_share</span></button><button aria-label="More actions" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-primary"><span class="material-symbols-outlined text-[20px]">more_horiz</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-1"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-[110px] pb-8 px-margin bg-surface-container-lowest"><div class="flex flex-col w-full pb-28">
+<!-- Top Context Header Bar (Subpage level) -->
+<div class="flex items-center justify-between py-space-sm mb-space-md">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-on-surface">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm tracking-wide">LIFESIM 算法测算已完成</span>
+</div>
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high transition-colors text-on-surface text-label-md font-label-md active:opacity-80" type="button">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span>调整偏好</span>
+</button>
+</div>
+<!-- Hero Decision Banner (Monochrome Architectural Card) -->
+<div class="relative overflow-hidden rounded-xl bg-primary text-on-primary p-space-lg shadow-sm mb-space-lg">
+<div class="relative z-10 flex flex-col gap-2">
+<div class="inline-flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container-lowest/15 text-surface-container-lowest font-label-sm text-label-sm tracking-wider uppercase">
+          方案 A · 综合得分 96
+        </span>
+<span class="text-surface-container-lowest/60 font-body-sm text-body-sm">基于张江通勤画像</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile font-bold tracking-tight text-surface-container-lowest mt-1">
+        通勤优先方案 (张江高科)
+      </h2>
+<p class="font-body-md text-body-md text-surface-container-lowest/80 leading-relaxed max-w-[90%]">
+        空间与时间的极致置换。压减日常通勤摩擦，构建高自洽的高能量生活圈。
+      </p>
+</div>
+<div class="absolute -right-8 -bottom-10 w-44 h-44 rounded-full bg-surface-container-lowest/5 blur-2xl pointer-events-none"></div>
+</div>
+<!-- Core Metric Dashboard (2x2 Modular Bento) -->
+<div class="mb-space-xl">
+<div class="flex items-center justify-between mb-space-sm px-1">
+<span class="font-title-md text-title-md font-semibold text-on-surface">核心指标模拟</span>
+<span class="font-label-sm text-label-sm text-secondary">REAL-TIME SIMULATION</span>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<!-- Metric 1: Monthly Cost -->
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-center justify-between text-secondary">
+<span class="font-label-md text-label-md">月居住总开销</span>
+<span class="material-symbols-outlined text-[18px]">payments</span>
+</div>
+<div class="my-2">
+<div class="flex items-baseline gap-0.5">
+<span class="font-title-lg text-title-lg font-bold text-on-surface tracking-tight">¥6,450</span>
+<span class="font-body-sm text-body-sm text-secondary">/月</span>
+</div>
+<div class="mt-1 flex flex-col gap-0.5 text-on-surface-variant font-body-sm text-body-sm">
+<span class="text-[11px] leading-tight text-secondary">房租 ¥4,800 · 水网 ¥450</span>
+<span class="text-[11px] leading-tight text-secondary">通勤 ¥120 · 简餐 ¥1,080</span>
+</div>
+</div>
+<div class="pt-2 mt-1 flex items-center gap-1 text-[11px] font-label-sm text-on-surface">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+<span>在预算边界内</span>
+</div>
+</div>
+<!-- Metric 2: Daily Commute -->
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-center justify-between text-secondary">
+<span class="font-label-md text-label-md">每日通勤时长</span>
+<span class="material-symbols-outlined text-[18px]">timer</span>
+</div>
+<div class="my-2">
+<div class="flex items-baseline gap-1">
+<span class="font-title-lg text-title-lg font-bold text-on-surface tracking-tight">24</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">分钟</span>
+<span class="font-body-sm text-body-sm text-secondary">/天</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary text-[11px] leading-tight mt-1">
+            往返两程 · 微电子港直达
+          </p>
+</div>
+<div class="pt-2 mt-1 flex items-center gap-1 text-[11px] font-label-sm text-on-surface">
+<span class="material-symbols-outlined text-[13px]">pedal_bike</span>
+<span>无需换乘挤车</span>
+</div>
+</div>
+<!-- Metric 3: Saved Time -->
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-center justify-between text-secondary">
+<span class="font-label-md text-label-md">每月通勤耗时</span>
+<span class="material-symbols-outlined text-[18px]">timelapse</span>
+</div>
+<div class="my-2">
+<div class="flex items-baseline gap-1">
+<span class="font-title-lg text-title-lg font-bold text-on-surface tracking-tight">8.8</span>
+<span class="font-body-sm text-body-sm text-secondary">小时</span>
+</div>
+<div class="mt-1.5 w-full bg-surface-container h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 23%;"></div>
+</div>
+</div>
+<div class="pt-2 mt-1 text-[11px] font-label-sm text-on-surface leading-tight">
+          较上海平均节省 <span class="font-bold">29.2h</span>
+</div>
+</div>
+<!-- Metric 4: Convenience Index -->
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-center justify-between text-secondary">
+<span class="font-label-md text-label-md">生活便利度</span>
+<span class="material-symbols-outlined text-[18px]">storefront</span>
+</div>
+<div class="my-2">
+<div class="flex items-baseline gap-0.5">
+<span class="font-title-lg text-title-lg font-bold text-on-surface tracking-tight">92</span>
+<span class="font-title-md text-title-md font-bold text-on-surface">%</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary text-[11px] leading-tight mt-1">
+            500m 极密生态闭环
+          </p>
+</div>
+<div class="pt-2 mt-1 flex items-center gap-1 text-[11px] font-label-sm text-on-surface">
+<span class="material-symbols-outlined text-[13px]">local_cafe</span>
+<span>罗森 / 健身 / Manner</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Day-in-the-Life Visual Timeline -->
+<div class="mb-space-xl">
+<div class="flex items-center justify-between mb-space-md px-1">
+<div>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface">24H 生活图景模拟</h3>
+<p class="font-body-sm text-body-sm text-secondary">基于真实地理坐标与日常作息推演</p>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold">
+        工作日流线
+      </span>
+</div>
+<!-- Timeline Container -->
+<div class="relative pl-6 space-y-6">
+<!-- Vertical continuous track line -->
+<div class="absolute left-[7px] top-3 bottom-3 w-[1.5px] bg-surface-container-high rounded-full"></div>
+<!-- Item 1: 08:30 -->
+<div class="relative group">
+<div class="absolute -left-[24px] top-1.5 w-3.5 h-3.5 rounded-full bg-surface-container-lowest border-[2.5px] border-primary"></div>
+<div class="p-4 rounded-xl bg-surface-container-low">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-md text-label-md font-bold text-primary">08:30</span>
+<span class="font-label-sm text-label-sm text-secondary">晨间唤醒</span>
+</div>
+<h4 class="font-title-md text-title-md font-semibold text-on-surface mb-1">【从容起床】</h4>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            告别压迫感早高峰。步出单元门，步行 5 分钟在路口 Manner 带上一杯热燕麦拿铁。
+          </p>
+</div>
+</div>
+<!-- Item 2: 08:50 -->
+<div class="relative group">
+<div class="absolute -left-[24px] top-1.5 w-3.5 h-3.5 rounded-full bg-surface-container-lowest border-[2.5px] border-primary"></div>
+<div class="p-4 rounded-xl bg-surface-container-low">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-md text-label-md font-bold text-primary">08:50</span>
+<span class="font-label-sm text-label-sm text-secondary">轻量通勤</span>
+</div>
+<h4 class="font-title-md text-title-md font-semibold text-on-surface mb-1">【轻快通勤】</h4>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            骑行共享单车沿着绿道 10 分钟直抵张江微电子港工位，身心毫无拥挤损耗。
+          </p>
+</div>
+</div>
+<!-- Item 3: 12:15 -->
+<div class="relative group">
+<div class="absolute -left-[24px] top-1.5 w-3.5 h-3.5 rounded-full bg-surface-container-lowest border-[2.5px] border-primary"></div>
+<div class="p-4 rounded-xl bg-surface-container-low">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-md text-label-md font-bold text-primary">12:15</span>
+<span class="font-label-sm text-label-sm text-secondary">午间歇息</span>
+</div>
+<h4 class="font-title-md text-title-md font-semibold text-on-surface mb-1">【午餐与休息】</h4>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            园区精致食堂或散步至长泰广场聚餐，充足的午休窗口让下午继续保持敏锐。
+          </p>
+</div>
+</div>
+<!-- Item 4: 18:40 -->
+<div class="relative group">
+<div class="absolute -left-[24px] top-1.5 w-3.5 h-3.5 rounded-full bg-surface-container-lowest border-[2.5px] border-primary"></div>
+<div class="p-4 rounded-xl bg-surface-container-low">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-md text-label-md font-bold text-primary">18:40</span>
+<span class="font-label-sm text-label-sm text-secondary">落日归航</span>
+</div>
+<h4 class="font-title-md text-title-md font-semibold text-on-surface mb-1">【下班归家】</h4>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            伴着晚霞步行 15 分钟回程，顺道在楼下生鲜超市采购新鲜蔬菜并收取当日包裹。
+          </p>
+</div>
+</div>
+<!-- Item 5: 20:00 -->
+<div class="relative group">
+<div class="absolute -left-[24px] top-1.5 w-3.5 h-3.5 rounded-full bg-surface-container-lowest border-[2.5px] border-primary"></div>
+<div class="p-4 rounded-xl bg-surface-container-low">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-md text-label-md font-bold text-primary">20:00</span>
+<span class="font-label-sm text-label-sm text-secondary">自我充能</span>
+</div>
+<h4 class="font-title-md text-title-md font-semibold text-on-surface mb-1">【独处与提升】</h4>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            每天稳定释放出近 1.5 小时的高质量自主支配权，无拘束投入健身流汗或沉浸阅读。
+          </p>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Synthesis Executive Quote -->
+<div class="p-space-lg rounded-xl bg-surface-container mb-space-lg relative overflow-hidden">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-on-primary text-[16px]">auto_awesome</span>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md font-bold text-on-surface">RentPilot AI 智囊总结</span>
+<span class="font-label-sm text-label-sm text-secondary">精力投资回报分析</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface font-medium leading-relaxed">
+          “该方案为你争取到了极高的精力保留度，生活半径高度聚集，租金稍高但时间 ROI 极佳。”
+        </p>
+</div>
+</div>
+</div>
+<!-- Neighborhood Anchor Mini-Map Teaser -->
+<div class="p-4 rounded-xl bg-surface-container-low mb-space-lg">
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">500米微生活圈实况</span>
+<span class="font-label-sm text-label-sm text-secondary">张江核心功能区</span>
+</div>
+<div class="w-full h-36 bg-cover bg-center rounded-lg relative overflow-hidden" data-location="Zhangjiang Hi-Tech Park, Shanghai" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDD_0AUQkKfw1WIPrnLFX36tPbm0IliTkKb3a4ITNKXLmpcOLAJ8xPORH-k_BcjYhldk0GF8ChvBYD2qoSDB-e-xa1Y4hOg7AkNSiNx-jbTuYys-kumoiKngwWpe3DefeCroBJ_W6gN0-RO1QsQJ_igQX3YINDivywbLmbT5SuYWU0403g1wLLBedYfD4HTAJA9aK9G8B_vBDUN70EzUaPsFJIWarK-X7_7lKaQGhoybgOsPslua0jc')">
+<div class="absolute inset-0 bg-primary/20 backdrop-blur-[1px] flex items-center justify-center">
+<div class="px-3.5 py-1.5 rounded-full bg-surface-container-lowest/90 text-on-surface shadow-sm flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-primary">my_location</span>
+<span class="font-label-sm text-label-sm font-semibold">生活半径 0.8 km</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Interactive Dock (Subpage Action Deck) -->
+<div class="fixed bottom-0 left-0 right-0 z-40 bg-surface-container-lowest/90 backdrop-blur-xl px-margin pt-3 pb-8 flex flex-col gap-2">
+<button class="w-full h-[52px] rounded-full bg-primary text-on-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 active:opacity-85 transition-opacity shadow-sm" type="button">
+<span>确认采用该方案并看房</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<button class="w-full h-10 rounded-full bg-transparent text-secondary hover:text-on-surface font-label-md text-label-md font-medium flex items-center justify-center transition-colors active:opacity-70" type="button">
+      切换其他方案模拟
+    </button>
+</div>
+</div></main><div class="fixed bottom-0 w-full z-50 pointer-events-none pb-safe"><div class="w-full flex justify-center pb-2"><div class="w-[140px] h-[5px] bg-primary/30 rounded-full"></div></div></div></body></html>

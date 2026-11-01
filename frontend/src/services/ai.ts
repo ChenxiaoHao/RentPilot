@@ -1,0 +1,43 @@
+import { apiRequest, ApiError } from './http'
+import { isListing } from './catalog'
+import type { CatalogListing, CatalogSource } from './catalog-types'
+export type TravelMode='WALKING'|'CYCLING'|'TRANSIT'|'DRIVING'
+export interface Workplace {id:string;name:string;address:string;district:string;adcode:string;longitude:number;latitude:number}
+export interface RouteCommute {mode:TravelMode;durationSeconds:number;minutes:number;distanceMeters:number;source:'AMAP';estimated:true;checkedAt:string}
+export type SearchAction={type:'CONTINUE'|'APPLY_ADJUSTMENT';token:string;adjustmentId?:string;to?:number}
+export type SearchAdjustment={id:string;label:string;description:string;changes:{field:'maxRent'|'maxCommuteMinutes';from:number;to:number}[];previewCount:number;previewKind:'FILTER_ONLY'|'VERIFIED_ROUTE'}
+export interface SearchResult { searchToken?:string|null;hasMore?:boolean|null;adjustments?:SearchAdjustment[]|null; status: 'NEEDS_INPUT'|'MATCHES'|'NO_MATCH'; message:string; criteria:Record<string,unknown>; recommendations:{listing:CatalogListing;reasons:string[];commute?:RouteCommute;insight?:Insight|null}[]; sortRule?:SortRule|null; total:number; limitations:string[]; dataKind:'SIMULATED'; source:CatalogSource; engine:'SPRING_AI'; workplaceCandidates?:Workplace[]; commute?:{state:'NEEDS_MODE'|'NEEDS_WORKPLACE'|'CHECKED';mode?:TravelMode;maxMinutes?:number;workplace?:Workplace;checkedCount:number;candidateCount:number;unverifiedCount:number;coverage:'COMPLETE'|'PARTIAL';estimated:true} }
+const modes=['WALKING','CYCLING','TRANSIT','DRIVING']
+const workplace=(p:Workplace)=>p && ['id','name','address','district','adcode'].every(k=>typeof (p as unknown as Record<string,unknown>)[k]==='string') && Number.isFinite(p.longitude) && p.longitude>=72.004 && p.longitude<=137.8347 && Number.isFinite(p.latitude) && p.latitude>=0.8293 && p.latitude<=55.8271
+export const isRouteCommute=(c:RouteCommute)=>c && modes.includes(c.mode) && Number.isFinite(c.durationSeconds) && c.durationSeconds>=0 && Number.isInteger(c.durationSeconds) && c.minutes===Math.ceil(c.durationSeconds/60) && Number.isFinite(c.distanceMeters) && c.distanceMeters>=0 && c.source==='AMAP' && c.estimated===true && typeof c.checkedAt==='string' && Number.isFinite(Date.parse(c.checkedAt))
+export async function searchAI(messages:{role:'user'|'assistant';content:string}[], signal:AbortSignal, workplaceId?:string, previousWorkplaceId?:string, action?:SearchAction):Promise<SearchResult> {
+ let r:SearchResult
+ try { r=await apiRequest<SearchResult>('/ai/search',{method:'POST',data:{messages,...(workplaceId?{workplaceId}:{}),...(previousWorkplaceId?{previousWorkplaceId}:{}),...(action?{action}:{})},signal,timeout:60000}) } catch(e) {if(e instanceof ApiError && e.code?.startsWith('AMAP_')) throw new ApiError('通勤路线服务暂不可用，请稍后重试',e.status,e.code);throw e}
+ if(!r || !['NEEDS_INPUT','MATCHES','NO_MATCH'].includes(r.status) || typeof r.message!=='string' || !r.criteria || typeof r.criteria!=='object' || !Array.isArray(r.recommendations) || r.recommendations.length>6 || !r.recommendations.every(x=>x && typeof x==='object' && isListing(x.listing)&&Array.isArray(x.reasons)&&x.reasons.every(y=>typeof y==='string')) || !Number.isInteger(r.total) || r.total<0 || !Array.isArray(r.limitations) || !r.limitations.every(x=>typeof x==='string') || r.dataKind!=='SIMULATED' || r.engine!=='SPRING_AI' || !r.source || r.source.dataKind!=='SIMULATED' || typeof r.source.id!=='string' || !Number.isInteger(r.source.rowCount) || r.source.rowCount<1 || typeof r.source.sha256!=='string' || !/^[a-f\d]{64}$/i.test(r.source.sha256) || (r.status==='MATCHES' ? r.recommendations.length===0 || r.total<r.recommendations.length : r.recommendations.length!==0)) throw new ApiError('服务返回的数据不完整，请重试')
+ if ((r.workplaceCandidates!=null && (!Array.isArray(r.workplaceCandidates) || !r.workplaceCandidates.every(workplace))) || (r.commute!=null && (!['NEEDS_MODE','NEEDS_WORKPLACE','CHECKED'].includes(r.commute.state) || (r.commute.mode!==undefined && !modes.includes(r.commute.mode)) || (r.commute.maxMinutes!==undefined && (!Number.isFinite(r.commute.maxMinutes) || r.commute.maxMinutes<0)) || (r.commute.workplace!==undefined && !workplace(r.commute.workplace)) || ![r.commute.checkedCount,r.commute.candidateCount,r.commute.unverifiedCount].every(n=>Number.isInteger(n)&&n>=0) || !['COMPLETE','PARTIAL'].includes(r.commute.coverage) || r.commute.estimated!==true)) || !r.recommendations.every(x=>x.commute==null || isRouteCommute(x.commute))) throw new ApiError('服务返回的数据不完整，请重试')
+ if (((r.hasMore===true || (Array.isArray(r.adjustments) && r.adjustments.length>0)) && !r.searchToken) || (r.searchToken!=null && (typeof r.searchToken!=='string' || !r.searchToken)) || (r.hasMore!=null && typeof r.hasMore!=='boolean') || (r.adjustments!=null && (!Array.isArray(r.adjustments) || r.adjustments.length>2 || new Set(r.adjustments.map(a=>a?.id)).size!==r.adjustments.length || !r.adjustments.every(a=>a && typeof a.id==='string' && !!a.id && typeof a.label==='string' && typeof a.description==='string' && Array.isArray(a.changes) && a.changes.length===1 && a.changes.every(c=>c && ['maxRent','maxCommuteMinutes'].includes(c.field) && Number.isFinite(c.from) && Number.isFinite(c.to) && c.from>=0 && c.to>c.from && c.to<=(c.field==='maxCommuteMinutes'?180:1000000)) && Number.isInteger(a.previewCount) && a.previewCount>=0 && ['FILTER_ONLY','VERIFIED_ROUTE'].includes(a.previewKind))))) throw new ApiError('服务返回的数据不完整，请重试')
+ if ((r.sortRule!=null && (!['COMMUTE_RENT_ID','RENT_ID'].includes(r.sortRule.key) || typeof r.sortRule.label!=='string' || typeof r.sortRule.partial!=='boolean')) || !r.recommendations.every(x=>x.insight==null || isInsight(x.insight,x.listing))) throw new ApiError('服务返回的数据不完整，请重试')
+ return r
+}
+
+export interface Evidence { id:string; label:string; text:string; status:'MATCHED'|'UNVERIFIED'; source:'LISTING'|'AMAP'; fields:string[] }
+export interface Costs { monthlyRent:number; deposit:number; paymentMethod:string; propertyFee:number|null; propertyFeePeriod:'UNSPECIFIED'; prepaidMonths:number|null; firstRentPayment:number|null; knownInitialPayment:number|null; excludedItems:string[] }
+export interface Insight { evidence:Evidence[]; costs:Costs }
+export interface SortRule { key:'COMMUTE_RENT_ID'|'RENT_ID'; label:string; partial:boolean }
+export interface Explanation { listingId:string; summary:string; evidenceIds:string[]; engine:'SPRING_AI'; dataKind:'SIMULATED' }
+const nonnegative=(v:unknown):v is number=>typeof v==='number' && Number.isFinite(v) && v>=0
+export const isInsight=(i:Insight, l:CatalogListing)=>{
+ if(!i || !Array.isArray(i.evidence) || !i.costs) return false
+ const c=i.costs
+ if(!i.evidence.every(e=>e && typeof e.id==='string' && !!e.id && typeof e.label==='string' && typeof e.text==='string' && ['MATCHED','UNVERIFIED'].includes(e.status) && ['LISTING','AMAP'].includes(e.source) && Array.isArray(e.fields) && e.fields.every(f=>typeof f==='string' && !!f)) || new Set(i.evidence.map(e=>e.id)).size!==i.evidence.length) return false
+ if(!nonnegative(c.monthlyRent) || c.monthlyRent!==l.rent || !nonnegative(c.deposit) || c.deposit!==l.deposit || typeof c.paymentMethod!=='string' || c.paymentMethod!==l.paymentMethod || !(c.propertyFee===null || nonnegative(c.propertyFee)) || c.propertyFee!==l.propertyFee || c.propertyFeePeriod!=='UNSPECIFIED' || !Array.isArray(c.excludedItems) || !c.excludedItems.every(x=>typeof x==='string')) return false
+ const cents=(n:number)=>Math.round(n*100)
+ const months:Record<string,number>={'押一付一':1,'押一付三':3,'押二付三':3}; const m=months[c.paymentMethod]??null
+ return c.prepaidMonths===m && (m===null ? c.firstRentPayment===null && c.knownInitialPayment===null : nonnegative(c.firstRentPayment) && nonnegative(c.knownInitialPayment) && cents(c.firstRentPayment)===cents(c.monthlyRent)*m && cents(c.knownInitialPayment)===cents(c.firstRentPayment)+cents(c.deposit))
+}
+export async function explainRecommendation(searchToken:string, listingId:string, signal:AbortSignal):Promise<Explanation> {
+ if(!searchToken || !listingId) throw new ApiError('请求数据不完整，请重试')
+ const r=await apiRequest<Explanation>('/ai/explain',{method:'POST',data:{searchToken,listingId},signal,timeout:60000})
+ if(!r || r.listingId!==listingId || typeof r.summary!=='string' || !r.summary.trim() || !Array.isArray(r.evidenceIds) || r.evidenceIds.length<1 || r.evidenceIds.length>3 || !r.evidenceIds.every(x=>typeof x==='string' && !!x) || new Set(r.evidenceIds).size!==r.evidenceIds.length || r.engine!=='SPRING_AI' || r.dataKind!=='SIMULATED') throw new ApiError('服务返回的数据不完整，请重试')
+ return r
+}

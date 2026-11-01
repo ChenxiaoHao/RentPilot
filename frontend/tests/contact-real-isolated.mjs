@@ -1,0 +1,52 @@
+import { chromium, expect } from '@playwright/test'
+import { randomBytes } from 'node:crypto'
+
+const base='http://127.0.0.1:5181',suffix=randomBytes(5).toString('hex'),password='Test-pass-123'
+const browser=await chromium.launch({channel:'chrome',headless:true})
+const ownerContext=await browser.newContext({viewport:{width:402,height:874}})
+const tenantContext=await browser.newContext({viewport:{width:402,height:874}})
+const owner=await ownerContext.newPage(),tenant=await tenantContext.newPage()
+async function register(page,username,nickname,redirect){
+  page.on('response',response=>{if(response.url().includes('/api/auth/register')){const u=new URL(response.url());console.log('注册接口:',u.origin+u.pathname,response.status(),response.headers()['content-type']||'')}})
+  await page.goto(`${base}/#/account?mode=register&redirect=${encodeURIComponent(redirect)}`)
+  await page.getByRole('textbox',{name:'用户名',exact:true}).fill(username)
+  await page.getByRole('textbox',{name:'昵称',exact:true}).fill(nickname)
+  await page.getByLabel('密码',{exact:true}).fill(password)
+  await page.getByRole('button',{name:'创建账号'}).click()
+  await expect(page).not.toHaveURL(/#\/account/)
+}
+try{
+  await register(owner,`owner${suffix}`,'演示发布方','/messages?claim=SH-MOCK-000001')
+  const dialog=owner.getByRole('dialog',{name:'演示发布方'})
+  await expect(dialog).toBeVisible()
+  await expect(dialog.locator('#claim-id')).toHaveValue('SH-MOCK-000001')
+  await dialog.getByRole('button',{name:'认领模拟房源'}).click()
+  await expect(dialog.getByRole('status')).toContainText('已认领')
+  await dialog.getByRole('button',{name:'关闭演示发布方'}).click()
+  await register(tenant,`tenant${suffix}`,'演示租客','/listing/SH-MOCK-000001')
+  await expect(tenant.locator('.real-detail')).toBeVisible()
+  await tenant.getByRole('button',{name:'联系房东'}).click()
+  await expect(tenant).toHaveURL(/#\/messages\/[a-f0-9-]+$/)
+  const conversation=tenant.url().split('#')[1]
+  await tenant.getByLabel('输入消息').fill('您好，周六下午可以在小区门口见面看房吗？')
+  await tenant.getByRole('button',{name:'发送',exact:true}).click()
+  await expect(tenant.getByText('您好，周六下午可以在小区门口见面看房吗？')).toBeVisible()
+  await expect(tenant.locator('.message')).toHaveCount(1)
+  await owner.goto(`${base}/#${conversation}`)
+  await expect(owner.getByText('您好，周六下午可以在小区门口见面看房吗？')).toBeVisible()
+  await owner.getByLabel('输入消息').fill('可以，我们约周六下午两点在小区门口见。')
+  await owner.getByRole('button',{name:'发送',exact:true}).click()
+  await expect(owner.getByText('可以，我们约周六下午两点在小区门口见。')).toBeVisible()
+  await tenant.reload()
+  await expect(tenant.getByText('可以，我们约周六下午两点在小区门口见。')).toBeVisible()
+  await expect(tenant.locator('.message')).toHaveCount(2)
+  await tenant.goto(`${base}/#/profile`)
+  await tenant.getByRole('button',{name:'退出登录'}).click()
+  await tenant.getByRole('dialog',{name:'退出登录'}).getByRole('button',{name:'确认退出'}).click()
+  await tenant.goto(`${base}/#/account?redirect=${encodeURIComponent(conversation)}`)
+  await tenant.getByRole('textbox',{name:'用户名',exact:true}).fill(`tenant${suffix}`)
+  await tenant.getByLabel('密码',{exact:true}).fill(password)
+  await tenant.getByRole('button',{name:'登录',exact:true}).click()
+  await expect(tenant.getByText('可以，我们约周六下午两点在小区门口见。')).toBeVisible()
+  console.log('通过：双账号认领、详情发起联系、双方协商、消息持久化、退出后重新登录。测试数据位于独立内存数据库。')
+}finally{await ownerContext.close();await tenantContext.close();await browser.close()}

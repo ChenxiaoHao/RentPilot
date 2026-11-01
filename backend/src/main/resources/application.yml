@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: rentpilot-backend
+  profiles:
+    default: local
+  datasource:
+    hikari:
+      maximum-pool-size: 5
+  flyway:
+    enabled: true
+  jackson:
+    time-zone: UTC
+server:
+  address: ${SERVER_ADDRESS:127.0.0.1}
+  port: ${SERVER_PORT:8080}
+  error:
+    include-message: never
+    include-stacktrace: never
+rentpilot:
+  dataset:
+    location: ${RENTPILOT_LISTINGS_CSV:classpath:dataset/上海1500条模拟房源.csv}
+    auto-import: true
+  cors-origins: ${RENTPILOT_CORS_ORIGINS:http://localhost:5173,http://127.0.0.1:5173,http://127.0.0.1:5178,http://127.0.0.1:4173,https://localhost,http://localhost,capacitor://localhost}

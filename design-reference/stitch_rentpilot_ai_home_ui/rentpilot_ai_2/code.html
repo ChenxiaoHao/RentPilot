@@ -1,0 +1,122 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport">
+<title>RentPilot</title>
+<!-- Tailwind CSS v3 with Forms and Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#111111',
+            muted: '#888888',
+            subtle: '#F0F0F0',
+            capsule: 'rgba(255, 255, 255, 0.94)',
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang SC"', '"Hiragino Sans GB"', '"Microsoft YaHei"', 'sans-serif'],
+          },
+          boxShadow: {
+            'card-float': '0 8px 30px rgba(0, 0, 0, 0.05)',
+            'nav-capsule': '0 10px 32px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.02)',
+          }
+        }
+      }
+    };
+  </script>
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<style data-purpose="custom-layout">
+    body {
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    /* iOS 安全区与无滚动条 */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-[#F8F9FA] text-[#111111] flex justify-center items-center min-h-screen antialiased selection:bg-neutral-200">
+<!-- BEGIN: MobileContainer -->
+<!-- 模拟真实 iOS 视口尺寸 (iPhone 15 Pro 比例) -->
+<div class="relative w-full max-w-[402px] h-[874px] bg-[#FFFFFF] shadow-2xl flex flex-col justify-between overflow-hidden rounded-[54px] border border-[#E8E8E8]" data-purpose="mobile-viewport">
+<!-- BEGIN: TopSection -->
+<header class="w-full z-20 pt-3 px-7 shrink-0 relative"><div class="w-full h-11 flex justify-between items-center text-xs tracking-tight text-black font-semibold" data-purpose="ios-status-bar"><span class="text-[14px] font-semibold tracking-normal pl-0.5">09:41</span><div class="absolute left-1/2 -translate-x-1/2 top-2.5 w-[125px] h-[36px] bg-black rounded-full flex items-center justify-between px-3 pointer-events-none z-30" data-purpose="dynamic-island"><div class="w-3 h-3 rounded-full bg-[#111111] border border-neutral-800/60"></div><div class="w-2.5 h-2.5 rounded-full bg-[#0a1128] ring-1 ring-blue-950/40"></div></div><div class="flex items-center space-x-2 pr-0.5"><svg class="w-4 h-3.5 fill-current" viewBox="0 0 17 12"><rect height="4" rx="0.7" width="2.5" x="0" y="8"></rect><rect height="6.5" rx="0.7" width="2.5" x="4" y="5.5"></rect><rect height="9" rx="0.7" width="2.5" x="8" y="3"></rect><rect height="12" rx="0.7" width="2.5" x="12" y="0"></rect></svg><svg class="w-4 h-3.5 fill-current" viewBox="0 0 16 12"><path d="M8 2.8C5.2 2.8 2.7 3.9 0.9 5.8L0 4.8C2.1 2.7 4.9 1.4 8 1.4C11.1 1.4 13.9 2.7 16 4.8L15.1 5.8C13.3 3.9 10.8 2.8 8 2.8ZM8 6.5C6.3 6.5 4.8 7.2 3.7 8.4L2.8 7.4C4.2 6 6 5.1 8 5.1C10 5.1 11.8 6 13.2 7.4L12.3 8.4C11.2 7.2 9.7 6.5 8 6.5ZM8 10.2C7.3 10.2 6.6 10.5 6.1 11.1L8 13.1L9.9 11.1C9.4 10.5 8.7 10.2 8 10.2Z"></path></svg><div class="w-6 h-3 border border-black/80 rounded-[4px] p-0.5 flex items-center relative"><div class="h-full w-4 bg-black rounded-[2px]"></div><div class="w-0.5 h-1.5 bg-black/80 absolute -right-1 rounded-r-xs"></div></div></div></div><nav class="flex justify-between items-center mt-3 pb-1" data-purpose="app-header"><h1 class="text-[26px] font-black tracking-tight text-black font-sans">RentPilot</h1><div class="w-10 h-10 rounded-full overflow-hidden p-0.5 ring-1 ring-black/5 flex-shrink-0"><img alt="用户头像" class="w-full h-full object-cover rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtAUm2sqj8kmyRy5XnOF9AX6Vmr4_bKqDHSGe1f79GR4pW4758D-iyh9Grlpl1WixcKPcEPzDqsDULtHlD-i0GKahkDW3hTLugJK8_794yucnFzB38efnn-XdSvSnjVIE9401UcZrNio_QhRBZLzPB4Lc4s7ObtHuO-U9AJd2V-Eu9JceDOAXtZTeTAQoNiKBqGvWTLX8cWOSfb19G3kAg3nH7vf9BpK4DUmsJY3fmu0dHLa9HsgwM"></div></nav></header>
+<!-- END: TopSection -->
+<!-- BEGIN: MainContent -->
+<main class="relative w-full flex-1 flex flex-col px-7 pt-12 pb-3 overflow-hidden" data-purpose="chat-home-intro">
+<!-- 极简苹果排版大标题与副标题 -->
+<div class="relative z-10 space-y-3.5">
+<h2 class="text-[34px] leading-[1.2] font-extrabold text-[#111111] tracking-tight">
+          你好，<br>想住在上海的哪里？
+        </h2>
+<p class="text-[14px] text-muted tracking-normal font-normal">
+          告诉我你的预算、工作地点和生活需求。
+        </p>
+</div>
+<!-- 背景装饰：上海天际线/东方明珠极淡剪影 (透明度约为 0.08~0.11，宁静克制) -->
+<div class="absolute bottom-28 left-0 right-0 w-full pointer-events-none select-none z-0 flex items-end justify-center px-3 opacity-[0.09]" data-purpose="skyline-silhouette">
+<svg class="w-full text-black h-auto object-bottom" fill="currentColor" viewBox="0 0 400 240">
+<!-- 东方明珠塔及陆家嘴建筑群矢量轮廓 -->
+<g>
+<!-- 东方明珠塔尖柱 -->
+<rect height="70" width="1.5" x="94.5" y="10"></rect>
+<circle cx="95.2" cy="78" r="7.5"></circle>
+<rect height="24" width="2.8" x="93.8" y="85"></rect>
+<circle cx="95.2" cy="115" r="13"></circle>
+<path d="M85 180 L92 128 L98 128 L105 180 Z"></path>
+<circle cx="95.2" cy="180" r="17"></circle>
+<path d="M78 240 L88 195 L102 195 L112 240 Z"></path>
+<!-- 上海中心大厦与金茂/环球金融中心建筑剪影 -->
+<path d="M130 240 L130 95 L152 75 L168 85 L168 240 Z"></path>
+<rect height="120" width="22" x="175" y="120"></rect>
+<path d="M205 240 L205 60 L230 45 L238 48 L238 240 Z"></path>
+<rect height="100" width="28" x="245" y="140"></rect>
+<polygon points="280,240 280,110 300,100 315,115 315,240"></polygon>
+<!-- 周边建筑层叠群 -->
+<rect height="60" width="20" x="15" y="180"></rect>
+<rect height="75" width="25" x="40" y="165"></rect>
+<rect height="65" width="16" x="68" y="175"></rect>
+<rect height="70" width="28" x="320" y="170"></rect>
+<rect height="50" width="35" x="352" y="190"></rect>
+<!-- 地平线底座 -->
+<rect height="2" width="400" x="0" y="238"></rect>
+</g>
+</svg>
+</div>
+<!-- 底部悬浮 AI 提问卡片 -->
+<div class="relative z-10 mt-auto mb-2 bg-white rounded-[24px] border border-subtle shadow-card-float p-4 flex flex-col justify-between min-h-[128px]" data-purpose="chat-input-box">
+<p class="text-[13.5px] text-muted leading-relaxed select-text font-normal">
+          例如：我在张江上班，预算 5000 元，想找整租一居室，通勤 30 分钟以内…
+        </p>
+<div class="flex items-center justify-between pt-2">
+<!-- 图片上传按钮 -->
+<button aria-label="上传参考图片" class="p-1.5 text-black hover:opacity-70 transition-opacity" type="button">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="image" aria-hidden="true" class="lucide lucide-image w-5 h-5 stroke-[1.8]"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg>
+</button>
+<!-- 发送按钮 (黑色纯圆实心向上箭头) -->
+<button aria-label="发送需求" class="w-9 h-9 rounded-full bg-brand flex items-center justify-center text-white active:scale-95 transition-transform shadow-sm" type="button">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-up" aria-hidden="true" class="lucide lucide-arrow-up w-4 h-4 stroke-[2.4]"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg>
+</button>
+</div>
+</div>
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: BottomNavigation -->
+<footer class="w-full z-20 pb-8 pt-1 px-5 flex flex-col items-center"><nav class="w-full h-[62px] bg-capsule backdrop-blur-md rounded-full shadow-nav-capsule border border-[#EEEEEE] flex items-center justify-between px-2" data-purpose="capsule-tab-bar"><a class="flex-1 h-[46px] rounded-full bg-[#EEEEEE] flex flex-col items-center justify-center text-brand transition-colors" href="javascript:void(0)"><i class="w-4 h-4 stroke-[2.2]" data-lucide="layout-grid"></i><span class="text-[11px] font-bold mt-0.5 tracking-tight">对话</span></a><a class="flex-1 h-[46px] rounded-full flex flex-col items-center justify-center text-muted hover:text-black transition-colors" href="javascript:void(0)"><i class="w-4 h-4 stroke-[1.8]" data-lucide="map-pin"></i><span class="text-[11px] font-medium mt-0.5 tracking-tight">地图</span></a><a class="flex-1 h-[46px] rounded-full flex flex-col items-center justify-center text-muted hover:text-black transition-colors" href="javascript:void(0)"><i class="w-4 h-4 stroke-[1.8]" data-lucide="layers"></i><span class="text-[11px] font-medium mt-0.5 tracking-tight">方案</span></a><a class="flex-1 h-[46px] rounded-full flex flex-col items-center justify-center text-muted hover:text-black transition-colors" href="javascript:void(0)"><i class="w-4 h-4 stroke-[1.8]" data-lucide="user"></i><span class="text-[11px] font-medium mt-0.5 tracking-tight">我的</span></a></nav><div class="w-[140px] h-[5px] bg-black/20 rounded-full mt-3 mb-0.5" data-purpose="ios-home-indicator"></div></footer>
+<!-- END: BottomNavigation -->
+</div>
+<!-- END: MobileContainer -->
+<!-- 图标渲染初始化脚本 -->
+<script data-purpose="lucide-init">
+    lucide.createIcons();
+  </script>
+
+
+</body></html>

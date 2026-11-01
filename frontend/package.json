@@ -1,0 +1,40 @@
+{
+  "name": "rentpilot-android",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "android:sync": "npm run build && cap sync android",
+    "android:open": "cap open android",
+    "android:apk": "npm run android:sync && cd android && gradlew.bat assembleDebug"
+  },
+  "dependencies": {
+    "@capacitor/android": "8.5.3",
+    "@capacitor/app": "8.1.2",
+    "@capacitor/core": "8.5.3",
+    "@capacitor/keyboard": "8.0.6",
+    "@fontsource/manrope": "^5.2.8",
+    "@lucide/vue": "^1.61.0",
+    "pinia": "^3.0.4",
+    "vue": "3.5.44",
+    "vue-router": "^4.6.4"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "8.5.3",
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^24.10.0",
+    "@vitejs/plugin-vue": "6.0.10",
+    "typescript": "^5.9.3",
+    "vite": "8.3.5",
+    "vitest": "^4.1.0",
+    "vue-tsc": "^3.2.4"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

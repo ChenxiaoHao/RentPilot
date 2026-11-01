@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-surface-container-lowest" lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><title>RentPilot</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "secondary-container": "#e3e2e2", "surface-container-high": "#ebe7e7", "error": "#ba1a1a", "surface-container-low": "#f6f3f2", "secondary-fixed-dim": "#c7c6c6", "on-secondary-fixed": "#1b1c1c", "outline-variant": "#cfc4c5", "primary-fixed-dim": "#c6c6c6", "inverse-surface": "#313030", "surface-bright": "#fcf9f8", "surface-container-lowest": "#ffffff", "surface-dim": "#dcd9d9", "tertiary-fixed": "#e2e2e2", "surface": "#fcf9f8", "on-primary": "#ffffff", "inverse-primary": "#c6c6c6", "surface-tint": "#5e5e5e", "on-error-container": "#93000a", "on-error": "#ffffff", "on-primary-fixed": "#1b1b1b", "on-primary-fixed-variant": "#474747", "background": "#fcf9f8", "on-surface": "#1c1b1b", "on-tertiary-fixed": "#1b1b1b", "error-container": "#ffdad6", "on-secondary-container": "#646464", "surface-container": "#f0edec", "on-tertiary": "#ffffff", "surface-container-highest": "#e5e2e1", "on-tertiary-fixed-variant": "#474747", "primary": "#000000", "tertiary-fixed-dim": "#c6c6c6", "tertiary": "#000000", "secondary": "#5e5e5e", "primary-fixed": "#e2e2e2", "on-secondary-fixed-variant": "#464747", "on-background": "#1c1b1b", "outline": "#7e7576", "on-secondary": "#ffffff", "surface-variant": "#e5e2e1", "tertiary-container": "#1b1b1b", "on-tertiary-container": "#848484", "primary-container": "#1b1b1b", "secondary-fixed": "#e3e2e2", "on-surface-variant": "#4c4546", "on-primary-container": "#848484", "inverse-on-surface": "#f3f0ef" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "gutter-sm": "0.75rem", "space-xl": "2.25rem", "space-lg": "1.5rem", "space-md": "1rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "margin-lg": "2rem", "gutter": "1rem", "gutter-lg": "1.5rem", "margin": "1.25rem", "margin-sm": "1rem" }, fontFamily: { "title-md": ["Manrope"], "headline-md": ["Manrope"], "body-md": ["Manrope"], "headline-lg": ["Manrope"], "display-lg": ["Manrope"], "label-lg": ["Manrope"], "body-lg": ["Manrope"], "label-md": ["Manrope"], "body-sm": ["Manrope"], "label-sm": ["Manrope"], "headline-lg-mobile": ["Manrope"], "title-lg": ["Manrope"] }, fontSize: { "title-md": ["16px", { lineHeight: "22px", letterSpacing: "-0.005em", fontWeight: "600" }], "headline-md": ["22px", { lineHeight: "30px", letterSpacing: "-0.015em", fontWeight: "600" }], "body-md": ["14px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "400" }], "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.025em", fontWeight: "700" }], "display-lg": ["40px", { lineHeight: "48px", letterSpacing: "-0.03em", fontWeight: "700" }], "label-lg": ["14px", { lineHeight: "18px", letterSpacing: "0.01em", fontWeight: "600" }], "body-lg": ["16px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }], "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "500" }], "body-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.01em", fontWeight: "400" }], "label-sm": ["10px", { lineHeight: "12px", letterSpacing: "0.04em", fontWeight: "600" }], "headline-lg-mobile": ["26px", { lineHeight: "34px", letterSpacing: "-0.02em", fontWeight: "700" }], "title-lg": ["18px", { lineHeight: "24px", letterSpacing: "-0.01em", fontWeight: "600" }] } } } };</script><style>@layer base{body{overscroll-behavior:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface-container-lowest font-body-md text-on-surface antialiased flex flex-col min-h-screen selection:bg-secondary-container"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/80 backdrop-blur-xl"><div class="relative w-full h-[54px] px-7 flex items-center justify-between"><span class="text-body-sm font-label-md text-on-surface font-semibold tracking-tight">09:41</span><div class="absolute left-1/2 -translate-x-1/2 top-[10px] w-[125px] h-[36px] bg-primary rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.06)] flex items-center justify-between px-3"><div class="w-3 h-3 rounded-full bg-[#161616]"></div><div class="w-2.5 h-2.5 rounded-full bg-[#111111]"></div></div><div class="flex items-center gap-1.5 text-on-surface"><span class="material-symbols-outlined text-[15px]">signal_cellular_4_bar</span><span class="material-symbols-outlined text-[15px]">wifi</span><span class="material-symbols-outlined text-[19px]">battery_full</span></div></div><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-1 -ml-2"><button aria-label="Back" class="h-11 px-2.5 rounded-full flex items-center gap-1 text-primary hover:bg-surface-container-high transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[20px]">arrow_back_ios_new</span><span class="font-label-lg text-label-lg font-medium">RentPilot</span></button></div><div class="flex items-center gap-1"><button aria-label="Share" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-primary"><span class="material-symbols-outlined text-[20px]">ios_share</span></button><button aria-label="More actions" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-primary"><span class="material-symbols-outlined text-[20px]">more_horiz</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-1"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-[110px] pb-8 px-margin bg-surface-container-lowest"><div class="flex flex-col w-full pb-28">
+<!-- Top Navigation Bar (Integrated below Shell Header) -->
+<div class="flex items-center justify-between py-2 -mt-2 mb-3">
+<button class="flex items-center gap-1 py-1.5 px-3 rounded-full bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors active:scale-95 duration-150" onclick="history.back()">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+<span class="font-label-md text-label-md">返回</span>
+</button>
+<div class="font-title-md text-title-md text-on-surface tracking-tight">房源详情</div>
+<div class="flex items-center gap-1.5">
+<button aria-label="分享房源" class="w-9 h-9 rounded-full bg-surface-container text-on-surface flex items-center justify-center hover:bg-surface-container-high transition-transform active:scale-90">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+<button aria-label="收藏房源" class="w-9 h-9 rounded-full bg-surface-container text-on-surface flex items-center justify-center hover:bg-surface-container-high transition-transform active:scale-90" id="favorite-btn">
+<span class="material-symbols-outlined text-[18px]" id="fav-icon">favorite</span>
+</button>
+</div>
+</div>
+<!-- Mandatory AI Disclaimer Strip -->
+<div class="w-full mb-3 px-3 py-2 rounded-xl bg-surface-container-high text-on-surface-variant flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">verified_user</span>
+<span class="font-label-sm text-label-sm tracking-tight text-on-surface">系统提示：当前呈现为 AI 演示模拟房源</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary bg-surface-container-lowest px-2 py-0.5 rounded-full">测试沙盒</span>
+</div>
+<!-- Hero Photo Stage & Interactive Indicator -->
+<div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-surface-container-high group select-none">
+<img alt="居室采光实景" class="w-full h-full object-cover transition-transform duration-500 ease-out" data-alt="Editorial photograph of an immaculate minimalist Scandinavian Tokyo micro-apartment, natural oak wood accents, bright white plaster walls, soft filtered morning sunlight casting crisp clean geometric shadows on a beige wool rug, low profile platform bed, architectural magazine quality, ultra high resolution monochrome and warm neutral tone." id="listing-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkBEMCUsrDuecfZzvfplS0-SbAnrN5NQXFD55EWWDlWNClp0t8VotYg3ehih1l16krZdotmml-HgeCtadhJuonbuilW231KA4LyBOnnOptIy7ItEtlVSovI8x_E4XMyUqF75aMlQXIzMG6sWh50lHeP_Fok_vfjfoiBBiUtO7s1yae5cyRJinJPsadAZiX-VTp19CuIAHY4X8yjZ2CrmbhW0mi5LGyZFdO6Ed-KJsf0ZI9iHwtdexc"/>
+<!-- Top Pill Disclaimer Badge -->
+<div class="absolute top-3.5 left-3.5 z-10 flex items-center gap-1.5 bg-primary/85 backdrop-blur-md px-3 py-1.5 rounded-full shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-surface-bright animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-on-primary font-medium tracking-wide">AI 演示模拟房源 · 非真实房东委托</span>
+</div>
+<!-- Verified Clean Label -->
+<div class="absolute top-3.5 right-3.5 z-10 bg-surface-container-lowest/90 backdrop-blur-md text-on-surface px-2.5 py-1 rounded-full shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+<span class="font-label-sm text-label-sm font-semibold">实勘重建</span>
+</div>
+<!-- Photo Counter & Gallery Trigger -->
+<div class="absolute bottom-3.5 right-3.5 z-10 bg-primary/80 backdrop-blur-md text-on-primary px-3 py-1 rounded-full flex items-center gap-1 font-label-md text-label-md tabular-nums">
+<span class="material-symbols-outlined text-[14px]">photo_camera</span>
+<span id="photo-index">1</span><span>/8</span>
+</div>
+<!-- Touch Slide Indicator Dots -->
+<div class="absolute bottom-3.5 left-1/2 -translate-x-1/2 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-lowest/70 backdrop-blur-md">
+<div class="w-4 h-1.5 rounded-full bg-primary transition-all"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-primary/30"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-primary/30"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-primary/30"></div>
+</div>
+</div>
+<!-- Primary Property Metric Card -->
+<div class="mt-4 p-5 rounded-xl bg-surface-container flex flex-col gap-3.5">
+<!-- Rent Price Line -->
+<div class="flex items-baseline justify-between">
+<div class="flex items-baseline gap-1 text-primary">
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold tracking-tight">¥4,800</span>
+<span class="font-body-md text-body-md text-secondary font-medium">/ 月</span>
+</div>
+<div class="px-2.5 py-1 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm">
+        押一付三 · 随时可租
+      </div>
+</div>
+<!-- Title & Basic Location Tag -->
+<div>
+<h1 class="font-title-lg text-title-lg text-on-surface font-semibold tracking-tight">张江高科小区 · 经典一室一厅</h1>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5">精致北欧轻奢装修 · 全明通透朝向 · 高得房率</p>
+</div>
+<!-- Architectural Spec Matrix (In-Card Level 2 Surface) -->
+<div class="grid grid-cols-4 gap-2 pt-1">
+<div class="flex flex-col items-center justify-center p-2.5 rounded-lg bg-surface-container-lowest text-center">
+<span class="font-label-sm text-label-sm text-secondary">建筑面积</span>
+<span class="font-title-md text-title-md text-on-surface font-semibold mt-0.5">45㎡</span>
+</div>
+<div class="flex flex-col items-center justify-center p-2.5 rounded-lg bg-surface-container-lowest text-center">
+<span class="font-label-sm text-label-sm text-secondary">主要朝向</span>
+<span class="font-title-md text-title-md text-on-surface font-semibold mt-0.5">正南向</span>
+</div>
+<div class="flex flex-col items-center justify-center p-2.5 rounded-lg bg-surface-container-lowest text-center">
+<span class="font-label-sm text-label-sm text-secondary">所在楼层</span>
+<span class="font-title-md text-title-md text-on-surface font-semibold mt-0.5">6/12层</span>
+</div>
+<div class="flex flex-col items-center justify-center p-2.5 rounded-lg bg-surface-container-lowest text-center">
+<span class="font-label-sm text-label-sm text-secondary">电梯供暖</span>
+<span class="font-title-md text-title-md text-on-surface font-semibold mt-0.5">集中冷暖</span>
+</div>
+</div>
+<!-- Transit Capsule Footprint -->
+<div class="flex items-center gap-2 p-3 rounded-lg bg-surface-container-lowest">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">directions_subway</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="font-label-md text-label-md text-on-surface font-medium truncate">浦东新区张江镇 · 碧波路</div>
+<div class="font-body-sm text-body-sm text-secondary truncate">距地铁 2 号线张江高科站 1 号口步行约 350 米</div>
+</div>
+<span class="material-symbols-outlined text-secondary text-[16px]">chevron_right</span>
+</div>
+</div>
+<!-- Space Amenities Modular Section -->
+<div class="mt-4 p-5 rounded-xl bg-surface-container">
+<div class="flex items-center justify-between mb-3.5">
+<h2 class="font-title-md text-title-md text-on-surface font-semibold">房屋配置设施</h2>
+<span class="font-label-sm text-label-sm text-secondary">8 项全配 · 拎包入住</span>
+</div>
+<div class="grid grid-cols-4 gap-y-3.5 gap-x-2">
+<!-- Item 1 -->
+<div class="flex flex-col items-center gap-1.5 p-2 rounded-lg bg-surface-container-lowest text-center">
+<span class="material-symbols-outlined text-[22px] text-primary">wifi</span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">千兆WiFi</span>
+</div>
+<!-- Item 2 -->
+<div class="flex flex-col items-center gap-1.5 p-2 rounded-lg bg-surface-container-lowest text-center">
+<span class="material-symbols-outlined text-[22px] text-primary">kitchen</span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">双门冰箱</span>
+</div>
+<!-- Item 3 -->
+<div class="flex flex-col items-center gap-1.5 p-2 rounded-lg bg-surface-container-lowest text-center">
+<span class="material-symbols-outlined text-[22px] text-primary">local_laundry_service</span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">洗烘一体</span>
+</div>
+<!-- Item 4 -->
+<div class="flex flex-col items-center gap-1.5 p-2 rounded-lg bg-surface-container-lowest text-center">
+<span class="material-symbols-outlined text-[22px] text-primary">shower</span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">独立卫浴</span>
+</div>
+<!-- Item 5 -->
+<div class="flex flex-col items-center gap-1.5 p-2 rounded-lg bg-surface-container-lowest text-center">
+<span class="material-symbols-outlined text-[22px] text-primary">balcony</span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">采光阳台</span>
+</div>
+<!-- Item 6 -->
+<div class="flex flex-col items-center gap-1.5 p-2 rounded-lg bg-surface-container-lowest text-center">
+<span class="material-symbols-outlined text-[22px] text-primary">elevator</span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">日立电梯</span>
+</div>
+<!-- Item 7 -->
+<div class="flex flex-col items-center gap-1.5 p-2 rounded-lg bg-surface-container-lowest text-center">
+<span class="material-symbols-outlined text-[22px] text-primary">skillet</span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">独立厨房</span>
+</div>
+<!-- Item 8 -->
+<div class="flex flex-col items-center gap-1.5 p-2 rounded-lg bg-surface-container-lowest text-center">
+<span class="material-symbols-outlined text-[22px] text-primary">lock</span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">智能门锁</span>
+</div>
+</div>
+</div>
+<!-- Minimal Monochrome Micro-Location Map Card -->
+<div class="mt-4 p-5 rounded-xl bg-surface-container">
+<div class="flex items-center justify-between mb-3">
+<div>
+<h2 class="font-title-md text-title-md text-on-surface font-semibold">周边通勤定位</h2>
+<p class="font-body-sm text-body-sm text-secondary">至张江微电子港通勤骑行仅 12 分钟</p>
+</div>
+<div class="px-2.5 py-1 rounded-full bg-surface-container-highest font-label-sm text-label-sm text-on-surface font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">directions_bike</span>
+<span>2.1 km</span>
+</div>
+</div>
+<!-- Map Canvas Integration -->
+<div class="relative w-full h-44 rounded-xl overflow-hidden bg-surface-container-high">
+<div class="w-full h-full bg-cover bg-center grayscale contrast-125 opacity-85" data-location="Zhangjiang Hi-Tech Park, Pudong, Shanghai" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuChEIKaa5gTB50JwoCTFBxKKIIjAo0Xk_uaeKcsuK_JazmGhkGyKHKTl9VOdKGJKHDKibdWMzdbAoaOD53LFfmjrd0zqdbmi4tc3_lLh7XUnim_Fgje5b5CUQ9_6wAzyIbw-xffbIHPsE7aBtNh6SyY-H_Rm76jGmBBWuW9lVxIsNhIk_Aik1CTixN0zDM3yLNfr1vXuQ8iEt2cercmK-Jq_DgbFrk8BeobKpZyhpBws25z7i3MKopB')"></div>
+<!-- Overlay Route Simulation Elements -->
+<div class="absolute inset-0 bg-primary/5 pointer-events-none"></div>
+<!-- Departure Pin Capsule -->
+<div class="absolute top-8 left-10 z-10 flex items-center gap-1.5 bg-primary text-on-primary px-2.5 py-1 rounded-full shadow-md">
+<span class="w-2 h-2 rounded-full bg-surface-bright"></span>
+<span class="font-label-sm text-label-sm font-semibold tracking-tight">房源位置</span>
+</div>
+<!-- Destination Target Capsule -->
+<div class="absolute bottom-8 right-10 z-10 flex items-center gap-1.5 bg-surface-container-lowest text-on-surface px-2.5 py-1 rounded-full shadow-md">
+<span class="material-symbols-outlined text-[14px] text-primary">business</span>
+<span class="font-label-sm text-label-sm font-semibold tracking-tight">微电子港园区</span>
+</div>
+<!-- Transit Mode Badge -->
+<div class="absolute bottom-2.5 left-2.5 z-10 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-md text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">navigation</span>
+<span>高德低饱和实景遥感微图</span>
+</div>
+</div>
+</div>
+<!-- RentPilot AI Decision Engine & Risk Assessment (Core Differentiator) -->
+<div class="mt-4 p-5 rounded-xl bg-surface-container">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[15px]">psychology</span>
+</div>
+<div>
+<h2 class="font-title-md text-title-md text-on-surface font-semibold leading-tight">AI 居住决策提示</h2>
+<span class="font-label-sm text-label-sm text-secondary">综合环境感知分析报告</span>
+</div>
+</div>
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container-highest font-label-sm text-label-sm text-on-surface font-medium">评分 9.2</span>
+</div>
+<!-- Merits Module -->
+<div class="p-3.5 rounded-lg bg-surface-container-lowest mb-2.5">
+<div class="flex items-center gap-1.5 mb-1 text-primary">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span class="font-label-md text-label-md font-semibold">推荐优势 · 宜居特性</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+        户型方正，南向主卧采光充沛；位于核心科技园区生活圈，工作日通勤无损耗，步行即达商街，居住效率极高。
+      </p>
+</div>
+<!-- Calculated Risks & Caveats Module -->
+<div class="p-3.5 rounded-lg bg-surface-container-lowest">
+<div class="flex items-center gap-1.5 mb-1 text-error">
+<span class="material-symbols-outlined text-[18px]">warning</span>
+<span class="font-label-md text-label-md font-semibold">风险自查 · 权衡提醒</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+        紧邻园区主干道，晚高峰时段存在轻微低频车流声，睡眠敏感者建议关闭隔音双层窗；同地段租金当前处于中高位水平。
+      </p>
+</div>
+</div>
+<!-- Landlord / Operator Profile Capsule -->
+<div class="mt-4 p-4 rounded-xl bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="relative w-11 h-11 rounded-full bg-surface-container-high flex items-center justify-center text-primary overflow-hidden">
+<span class="material-symbols-outlined text-[24px]">corporate_fare</span>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">张江科创直营管家</span>
+<span class="material-symbols-outlined text-[16px] text-primary">check_circle</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5">平均 3 分钟极速响应 · 官方验房</p>
+</div>
+</div>
+<button class="px-3 py-1.5 rounded-full bg-surface-container-lowest text-on-surface font-label-md text-label-md font-medium hover:bg-surface-container-highest active:scale-95 transition-all">
+      机构资质
+    </button>
+</div>
+<!-- Bottom Fixed Booking Dock (Apple Utilitarian Luxury Style) -->
+<div class="fixed bottom-0 left-0 right-0 z-40 bg-surface-container-lowest/90 backdrop-blur-xl px-5 py-3.5 pb-safe shadow-[0_-8px_24px_rgba(0,0,0,0.03)] flex flex-col">
+<div class="flex items-center justify-between gap-3 max-w-md mx-auto w-full">
+<!-- Fast Icon Action 1: Customer Service Inquiry -->
+<button aria-label="在线咨询管家" class="flex flex-col items-center justify-center w-12 h-12 rounded-full bg-surface-container hover:bg-surface-container-high transition-transform active:scale-90 flex-shrink-0 text-on-surface" id="consult-btn">
+<span class="material-symbols-outlined text-[20px]">chat_bubble_outline</span>
+<span class="font-label-sm text-[9px] -mt-0.5">管家</span>
+</button>
+<!-- Fast Icon Action 2: Phone Hotline -->
+<button aria-label="电话联系" class="flex flex-col items-center justify-center w-12 h-12 rounded-full bg-surface-container hover:bg-surface-container-high transition-transform active:scale-90 flex-shrink-0 text-on-surface">
+<span class="material-symbols-outlined text-[20px]">call</span>
+<span class="font-label-sm text-[9px] -mt-0.5">电话</span>
+</button>
+<!-- Primary Action CTA Capsule -->
+<button class="flex-1 h-12 rounded-full bg-primary text-on-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 hover:opacity-90 active:scale-[0.98] transition-all" id="book-btn">
+<span class="material-symbols-outlined text-[18px]">calendar_month</span>
+<span>预约线下看房（模拟）</span>
+</button>
+</div>
+</div>
+<!-- Interactive Toast Notification Modal for Simulation -->
+<div class="fixed top-20 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 transition-all duration-300 transform -translate-y-2 px-4 py-2 rounded-full bg-primary text-on-primary shadow-xl font-label-md text-label-md flex items-center gap-2" id="sim-toast">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span id="toast-text">已加入模拟看房日程</span>
+</div>
+</div>
+<script>
+  // Micro-interaction handlers for simulated experience
+  const favBtn = document.getElementById('favorite-btn');
+  const favIcon = document.getElementById('fav-icon');
+  const bookBtn = document.getElementById('book-btn');
+  const consultBtn = document.getElementById('consult-btn');
+  const toast = document.getElementById('sim-toast');
+  const toastText = document.getElementById('toast-text');
+
+  let isFavorited = false;
+
+  function showToast(message) {
+    toastText.textContent = message;
+    toast.classList.remove('opacity-0', '-translate-y-2');
+    toast.classList.add('opacity-100', 'translate-y-0');
+    setTimeout(() => {
+      toast.classList.remove('opacity-100', 'translate-y-0');
+      toast.classList.add('opacity-0', '-translate-y-2');
+    }, 2200);
+  }
+
+  favBtn.addEventListener('click', () => {
+    isFavorited = !isFavorited;
+    if (isFavorited) {
+      favIcon.style.fontVariationSettings = "'FILL' 1";
+      favIcon.classList.add('text-error');
+      showToast('已收藏至模拟偏好列表');
+    } else {
+      favIcon.style.fontVariationSettings = "'FILL' 0";
+      favIcon.classList.remove('text-error');
+      showToast('已取消收藏');
+    }
+  });
+
+  bookBtn.addEventListener('click', () => {
+    showToast('已触发：预约线下看房模拟流程（演示）');
+  });
+
+  consultBtn.addEventListener('click', () => {
+    showToast('管家在线中，模拟会话已建立');
+  });
+</script></main><div class="fixed bottom-0 w-full z-50 pointer-events-none pb-safe"><div class="w-full flex justify-center pb-2"><div class="w-[140px] h-[5px] bg-primary/30 rounded-full"></div></div></div></body></html>

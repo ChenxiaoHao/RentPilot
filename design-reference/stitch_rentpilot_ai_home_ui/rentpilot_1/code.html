@@ -1,0 +1,347 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>RentPilot - 地图找房</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#111111',
+              dark: '#1e1e1e',
+              gray: '#71717a',
+              lightGray: '#f4f4f5',
+              border: '#e4e4e7',
+              pill: '#f7f7f8'
+            }
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Text"', '"SF Pro Display"', '"PingFang SC"', '"Hiragino Sans GB"', '"Microsoft YaHei"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Styles -->
+<style data-purpose="map-styling">
+    /* 模拟极简灰阶矢量地图背景 */
+    .map-canvas-bg {
+      background-color: #ededed;
+      background-image: 
+        radial-gradient(#dcdcdc 1px, transparent 1px),
+        linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 20px 20px, 40px 40px, 40px 40px;
+    }
+    /* 黄浦江及水系柔和折线 */
+    .river-path {
+      fill: none;
+      stroke: #dbe0e6;
+      stroke-width: 24;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .road-grid {
+      fill: none;
+      stroke: #f7f7f8;
+      stroke-width: 4;
+      stroke-linecap: round;
+    }
+    .metro-line {
+      fill: none;
+      stroke-linecap: round;
+      stroke-dasharray: 4 2;
+    }
+    /* 隐藏滚动条 */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style data-purpose="pin-pulse">
+    .selected-pin {
+      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.25));
+    }
+  </style>
+<!-- END: Custom Styles -->
+</head>
+<body class="bg-black flex justify-center items-center min-h-screen p-0 m-0 font-sans antialiased selection:bg-neutral-200">
+<!-- BEGIN: PhoneFrame -->
+<!-- 模拟iPhone设备机身与屏幕容器 -->
+<div class="relative w-full max-w-[402px] h-[874px] bg-white rounded-[54px] shadow-2xl overflow-hidden border-[8px] border-neutral-900 flex flex-col justify-between select-none">
+<!-- Dynamic Island / 刘海区域 -->
+<div class="absolute top-3 left-1/2 -translate-x-1/2 w-[125px] h-[36px] bg-black rounded-full z-50 flex items-center justify-end px-3.5">
+<div class="w-3 h-3 rounded-full bg-[#111] border border-neutral-800"></div>
+</div>
+<!-- BEGIN: iOSStatusBar -->
+<!-- 顶部状态栏: 时间、信号、Wifi、电池 -->
+<header class="relative z-40 pt-3.5 px-8 flex justify-between items-center text-xs font-semibold tracking-tight text-neutral-900 select-none">
+<span class="text-sm font-semibold tracking-normal pl-1">09:41</span>
+<div class="flex items-center space-x-1.5 pr-1">
+<!-- 信号强度 -->
+<svg class="w-4 h-3 fill-current" viewBox="0 0 17 11">
+<rect height="3" rx="0.5" width="3" x="0" y="8"></rect>
+<rect height="5.5" rx="0.5" width="3" x="4.5" y="5.5"></rect>
+<rect height="8" rx="0.5" width="3" x="9" y="3"></rect>
+<rect height="10.5" rx="0.5" width="3" x="13.5" y="0.5"></rect>
+</svg>
+<!-- 蜂窝/WiFi -->
+<svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 16 16">
+<path d="M8 12.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm0-4a5.5 5.5 0 0 1 4.3 2.1l-1.1 1.1A4 4 0 0 0 8 10a4 4 0 0 0-3.2 1.7L3.7 10.6A5.5 5.5 0 0 1 8 8.5zm0-4a9.5 9.5 0 0 1 7.2 3.4l-1.1 1.1A8 8 0 0 0 8 6a8 8 0 0 0-6.1 3L0.8 7.9A9.5 9.5 0 0 1 8 4.5z"></path>
+</svg>
+<!-- 电池 -->
+<div class="w-5 h-2.5 border border-current rounded-sm p-0.5 flex items-center relative">
+<div class="h-full bg-current w-full rounded-2xs"></div>
+<div class="absolute -right-1 top-0.5 w-0.5 h-1.5 bg-current rounded-r-xs"></div>
+</div>
+</div>
+</header>
+<!-- END: iOSStatusBar -->
+<!-- BEGIN: TopNavigationBar -->
+<!-- 顶部导航条：返回按钮、标题、搜索 -->
+<div class="relative z-30 px-5 pt-3 pb-2 flex items-center justify-between bg-white/90 backdrop-blur-md">
+<button aria-label="返回" class="p-1 -ml-1 text-neutral-800 hover:text-black transition-colors" type="button">
+<svg class="w-6 h-6 stroke-[2.2] stroke-current fill-none" viewBox="0 0 24 24">
+<path d="M15.75 19.5L8.25 12l7.5-7.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<h1 class="text-base font-semibold tracking-wide text-neutral-900">地图找房</h1>
+<button aria-label="搜索" class="p-1 -mr-1 text-neutral-800 hover:text-black transition-colors" type="button">
+<svg class="w-5 h-5 stroke-[2] stroke-current fill-none" viewBox="0 0 24 24">
+<path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- END: TopNavigationBar -->
+<!-- BEGIN: FilterBar -->
+<!-- 横向筛选药丸胶囊栏 -->
+<nav class="relative z-30 px-4 py-1.5 flex items-center space-x-2 overflow-x-auto no-scrollbar bg-white/90 backdrop-blur-sm border-b border-neutral-100">
+<!-- 区域 -->
+<button class="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-medium bg-neutral-100 hover:bg-neutral-200 text-neutral-800 transition-colors shadow-2xs">
+<span class="">区域</span>
+<svg class="w-3 h-3 ml-1 text-neutral-500 stroke-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- 租金范围 -->
+<button class="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-medium bg-neutral-100 hover:bg-neutral-200 text-neutral-800 transition-colors shadow-2xs">
+<span class="">租金范围</span>
+<svg class="w-3 h-3 ml-1 text-neutral-500 stroke-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- 户型 -->
+<button class="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-medium bg-neutral-100 hover:bg-neutral-200 text-neutral-800 transition-colors shadow-2xs">
+<span class="">户型</span>
+<svg class="w-3 h-3 ml-1 text-neutral-500 stroke-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- 地铁距离 -->
+<button class="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-medium bg-neutral-100 hover:bg-neutral-200 text-neutral-800 transition-colors shadow-2xs shrink-0">
+<span class="">地铁距离</span>
+<svg class="w-3 h-3 ml-1 text-neutral-500 stroke-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</nav>
+<!-- END: FilterBar -->
+<!-- BEGIN: MapContainer -->
+<!-- 极简高德黑白灰地图界面 -->
+<main class="relative flex-1 w-full overflow-hidden map-canvas-bg" data-purpose="interactive-map">
+<!-- 地图矢量线条与底纹 (SVG) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+<!-- 黄浦江流线模拟 -->
+<path class="river-path" d="M 120 -20 C 130 90, 290 120, 275 220 C 260 300, 280 380, 250 480 C 230 540, 210 610, 190 700"></path>
+<!-- 道路网格线条 -->
+<path class="road-grid" d="M -10 160 L 420 190"></path>
+<path class="road-grid" d="M -20 280 L 430 330"></path>
+<path class="road-grid" d="M -20 420 L 420 430"></path>
+<path class="road-grid" d="M 150 -30 L 120 600"></path>
+<path class="road-grid" d="M 330 30 L 310 650"></path>
+<!-- 地铁线路 (带浅色标号线) -->
+<path class="metro-line stroke-neutral-400" d="M 20 80 L 380 120" stroke-width="2"></path>
+<path class="metro-line stroke-neutral-500" d="M 60 220 L 390 260" stroke-width="2"></path>
+<path class="metro-line stroke-neutral-400" d="M 300 10 L 260 480" stroke-width="2"></path>
+</svg>
+<!-- 行政区域名称标注 (淡灰色极简风格) -->
+<span class="absolute top-10 left-12 text-xs font-medium text-neutral-400 tracking-wider">宝山区</span>
+<span class="absolute top-8 right-24 text-xs font-medium text-neutral-400 tracking-wider">杨浦区</span>
+<span class="absolute top-20 right-14 text-xs font-medium text-neutral-400 tracking-wider">外高桥</span>
+<span class="absolute top-28 left-8 text-xs font-medium text-neutral-400 tracking-wider">普陀区</span>
+<span class="absolute top-36 right-28 text-xs font-medium text-neutral-400 tracking-wider">虹口区</span>
+<span class="absolute top-52 right-20 text-xs font-medium text-neutral-400 tracking-wider">陆家嘴</span>
+<span class="absolute top-64 left-10 text-xs font-medium text-neutral-400 tracking-wider">长宁区</span>
+<span class="absolute top-96 left-8 text-xs font-medium text-neutral-400 tracking-wider">闵行区</span>
+<span class="absolute top-72 right-6 text-xs font-medium text-neutral-400 tracking-wider">张江高新区</span>
+<!-- 地铁线路胶囊标 -->
+<div class="absolute top-12 right-6 bg-neutral-500/80 backdrop-blur-xs text-[10px] text-white px-1.5 py-0.5 rounded-full tracking-tighter">2号线</div>
+<div class="absolute top-52 left-28 bg-neutral-600/80 backdrop-blur-xs text-[10px] text-white px-1.5 py-0.5 rounded-full tracking-tighter">9号线</div>
+<div class="absolute bottom-44 left-24 bg-neutral-600/80 backdrop-blur-xs text-[10px] text-white px-1.5 py-0.5 rounded-full tracking-tighter">11号线</div>
+<div class="absolute top-56 right-12 bg-neutral-600/80 backdrop-blur-xs text-[10px] text-white px-1.5 py-0.5 rounded-full tracking-tighter">13号线</div>
+<!-- 地图房源图钉 1: 5,200 -->
+<div class="absolute top-16 right-16 flex items-center transform -translate-x-1/2">
+<div class="relative flex items-center bg-white px-2 py-0.5 rounded-full shadow-md border border-neutral-200">
+<span class="text-[11px] font-semibold text-neutral-900">¥5,200</span>
+</div>
+<div class="w-3.5 h-3.5 -ml-1 bg-neutral-900 rounded-full flex items-center justify-center text-white text-[8px] shadow-sm">●</div>
+</div>
+<!-- 地图房源图钉 2: 5,800 -->
+<div class="absolute top-28 right-8 flex items-center transform -translate-x-1/2">
+<div class="relative flex items-center bg-white px-2 py-0.5 rounded-full shadow-md border border-neutral-200">
+<span class="text-[11px] font-semibold text-neutral-900">¥5,800</span>
+</div>
+<div class="w-4 h-4 -ml-1 bg-neutral-900 rounded-full flex items-center justify-center text-white text-[8px] shadow-sm">●</div>
+</div>
+<!-- 地图房源图钉 3: 4,300 (选中态，深黑大图钉) -->
+<div class="absolute top-52 left-44 flex flex-col items-center selected-pin z-20">
+<div class="bg-neutral-900 text-white px-2.5 py-0.5 rounded-full shadow-lg border border-neutral-800 flex items-center">
+<span class="text-[11px] font-bold">¥4,300</span>
+</div>
+<svg class="w-5 h-6 -mt-1 text-neutral-900 fill-current drop-shadow-sm" viewBox="0 0 24 24">
+<path d="M12 0C7.58 0 4 3.58 4 8c0 5.25 8 16 8 16s8-10.75 8-16c0-4.42-3.58-8-8-8zm0 11c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"></path>
+</svg>
+</div>
+<!-- 地图房源图钉 4: 6,300 -->
+<div class="absolute top-72 left-28 flex items-center">
+<div class="w-3.5 h-3.5 mr-1 bg-neutral-900 rounded-full flex items-center justify-center text-white text-[8px] shadow-sm">●</div>
+<div class="bg-white px-2 py-0.5 rounded-full shadow-md border border-neutral-200">
+<span class="text-[11px] font-semibold text-neutral-900">¥6,300</span>
+</div>
+</div>
+<!-- 地图房源图钉 5: 4,600 -->
+<div class="absolute bottom-52 right-14 flex items-center">
+<div class="w-3.5 h-3.5 mr-1 bg-neutral-900 rounded-full flex items-center justify-center text-white text-[8px] shadow-sm">●</div>
+<div class="bg-white px-2 py-0.5 rounded-full shadow-md border border-neutral-200">
+<span class="text-[11px] font-semibold text-neutral-900">¥4,600</span>
+</div>
+</div>
+<!-- BEGIN: FloatingMapControls -->
+<!-- 右侧浮动地图工具 (定位 + 图层) -->
+<aside aria-label="地图辅助控件" class="absolute right-4 bottom-56 flex flex-col space-y-2 z-20">
+<!-- 定位按钮 -->
+<button class="w-9 h-9 bg-white/95 rounded-full shadow-md border border-neutral-200 flex items-center justify-center text-neutral-800 hover:text-black transition-colors" title="定位当前位置">
+<svg class="w-5 h-5 stroke-[1.8] stroke-current fill-none" viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="7" stroke-width="1.8"></circle>
+<path d="M12 2v3m0 14v3M2 12h3m14 0h3" stroke-linecap="round"></path>
+<circle cx="12" cy="12" fill="currentColor" r="2"></circle>
+</svg>
+</button>
+<!-- 图层按钮 -->
+<button class="w-9 h-9 bg-white/95 rounded-full shadow-md border border-neutral-200 flex items-center justify-center text-neutral-800 hover:text-black transition-colors" title="切换图层">
+<svg class="w-5 h-5 stroke-[1.8] stroke-current fill-none" viewBox="0 0 24 24">
+<path d="M6.455 19L2 16.5l10-5.5 10 5.5L17.545 19M2 11l10 5.5L22 11M12 2L2 7.5l10 5.5 10-5.5L12 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</aside>
+<!-- END: FloatingMapControls -->
+</main>
+<!-- END: MapContainer -->
+<!-- BEGIN: HouseDetailDrawer -->
+<!-- 底部抽屉浮层房源卡片 (白底圆角上推卡片) -->
+<section class="relative z-30 bg-white rounded-t-3xl shadow-[0_-10px_25px_rgba(0,0,0,0.06)] px-4 pt-2.5 pb-20 border-t border-neutral-100 flex flex-col space-y-3.5 -mt-8" data-purpose="bottom-sheet-card">
+<!-- 拖拽横条 Handle -->
+<div class="w-10 h-1 bg-neutral-300 rounded-full mx-auto my-0.5"></div>
+<!-- 房源卡片一 (主要卡片) -->
+<article class="flex space-x-3 items-center">
+<!-- 房间缩略图 -->
+<div class="relative w-28 h-24 rounded-xl overflow-hidden bg-neutral-100 shrink-0">
+<img alt="张江高科小区 一居室" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDy3EbonbWWc8iX-ymQncyzcHg6J0V7EsZf4Eovc9TWEN5isF3-bjd8r1qhzZdb_WSJR2LJv_8jAhWEuivTK7Hv50LvtYI8XITBJpV5Ksum0THOmQfFjZdApjIM-Tx31cqtxjUw1T6AQBMpnL_1aCrAWRPXtNIHeYSe2_MAfBxqVhb8FDncWx0gb0mZiZJtVvGWkv93YuJsCRaCj0jpCqd9qCH_ELMTKsG9hj3Uvt1w1rmBtDvq69Q7">
+</div>
+<!-- 房间详细文字 -->
+<div class="flex-1 min-w-0 flex flex-col justify-between h-24 py-0.5">
+<div>
+<div class="flex justify-between items-start">
+<h2 class="text-sm font-bold text-neutral-900 truncate">张江高科小区 一居室</h2>
+<!-- 收藏爱心图标 -->
+<button aria-label="收藏房源" class="text-neutral-400 hover:text-neutral-900 p-0.5 ml-1">
+<svg class="w-4 h-4 stroke-[1.8] stroke-current fill-none" viewBox="0 0 24 24">
+<path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<p class="text-[11px] text-neutral-500 mt-0.5">浦东新区 | 张江镇</p>
+<p class="text-[11px] text-neutral-600 mt-0.5">45m² | 1室1厅1卫 | 精装修</p>
+</div>
+<!-- 标签组与价格 -->
+<div class="flex items-center justify-between">
+<div class="flex space-x-1">
+<span class="px-1.5 py-0.5 text-[10px] bg-neutral-100 text-neutral-600 rounded">近地铁</span>
+<span class="px-1.5 py-0.5 text-[10px] bg-neutral-100 text-neutral-600 rounded">有电梯</span>
+<span class="px-1.5 py-0.5 text-[10px] bg-neutral-100 text-neutral-600 rounded">家具齐全</span>
+</div>
+</div>
+<div class="text-sm font-bold text-neutral-900 -mt-1">
+            ¥4,800<span class="text-xs font-normal text-neutral-500">/月</span>
+</div>
+</div>
+</article>
+<!-- 房源卡片二 (隐约露出部分) -->
+<article class="flex space-x-3 items-center opacity-40 border-t border-neutral-100 pt-2">
+<div class="relative w-28 h-12 rounded-xl overflow-hidden bg-neutral-100 shrink-0">
+<img alt="唐镇新苑 一居室" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC36gpBR1q_2ceMBLjqbP2ug1HUnZgI1tI25eChrTCJvbBajWuaUe1Bl2rK88p37GV2OEXKf-W1w8stLW0U777FvbXtwCAQCmim1LwrVxdGip8_cTsFdJTLIWRGW-XSEyk4vuvnM-hVpoFv7X7vHf6TpHnbJgwMeJmiaIuaGfmBBhUANYUDgL8BPGfDKoD9Z8PPkFah_mpiG8Ic27gCQA5RKrkhIk7cvmIktqkv6KCZQoryuV77udlJ">
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-center">
+<div class="flex justify-between items-center">
+<h2 class="text-sm font-bold text-neutral-900 truncate">唐镇新苑 一居室</h2>
+<svg class="w-4 h-4 text-neutral-400 stroke-[1.8] stroke-current fill-none" viewBox="0 0 24 24">
+<path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<p class="text-[11px] text-neutral-500">浦东新区 | 张江镇</p>
+</div>
+</article>
+</section>
+<!-- END: HouseDetailDrawer -->
+<!-- BEGIN: BottomNavigationBar -->
+<!-- 底部悬浮胶囊导航栏：当前为第二项「地图」激活状态 -->
+<div class="absolute bottom-4 left-0 right-0 px-6 z-50 pointer-events-none">
+<nav aria-label="底部主导航" class="pointer-events-auto bg-white/95 backdrop-blur-md border border-neutral-200/80 rounded-full px-3 py-1.5 shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex items-center justify-between">
+<!-- 导航项 1: 对话 (未选中) -->
+<a class="flex flex-col items-center justify-center py-1 px-4 rounded-full text-neutral-400 hover:text-neutral-600 transition-all" href="#chat">
+<svg class="w-5 h-5 stroke-[2] stroke-current fill-none" viewBox="0 0 24 24">
+<rect height="6" rx="1.5" width="6" x="4" y="4"></rect>
+<rect height="6" rx="1.5" width="6" x="14" y="4"></rect>
+<rect height="6" rx="1.5" width="6" x="4" y="14"></rect>
+<rect height="6" rx="1.5" width="6" x="14" y="14"></rect>
+</svg>
+<span class="text-[10px] font-medium mt-0.5">对话</span>
+</a>
+<!-- 导航项 2: 地图 (当前激活项 - 黑灰高亮背景胶囊) -->
+<a aria-current="page" class="flex flex-col items-center justify-center py-1 px-4 rounded-full bg-neutral-100 text-neutral-900 transition-all" href="#map">
+<svg class="w-5 h-5 stroke-[2] stroke-current fill-none" viewBox="0 0 24 24">
+<path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[10px] font-bold mt-0.5">地图</span>
+</a>
+<!-- 导航项 3: 方案 (未选中) -->
+<a class="flex flex-col items-center justify-center py-1 px-4 rounded-full text-neutral-400 hover:text-neutral-600 transition-all" href="#plans">
+<svg class="w-5 h-5 stroke-[2] stroke-current fill-none" viewBox="0 0 24 24">
+<path d="M6.455 19L2 16.5l10-5.5 10 5.5L17.545 19M2 11l10 5.5L22 11M12 2L2 7.5l10 5.5 10-5.5L12 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[10px] font-medium mt-0.5">方案</span>
+</a>
+<!-- 导航项 4: 我的 (未选中) -->
+<a class="flex flex-col items-center justify-center py-1 px-4 rounded-full text-neutral-400 hover:text-neutral-600 transition-all" href="#profile">
+<svg class="w-5 h-5 stroke-[2] stroke-current fill-none" viewBox="0 0 24 24">
+<path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[10px] font-medium mt-0.5">我的</span>
+</a>
+</nav>
+<!-- iOS Home Bar 条 -->
+<div class="w-[140px] h-1 bg-neutral-900 rounded-full mx-auto mt-2.5"></div>
+</div>
+<!-- END: BottomNavigationBar -->
+</div>
+<!-- END: PhoneFrame -->
+
+
+</body></html>

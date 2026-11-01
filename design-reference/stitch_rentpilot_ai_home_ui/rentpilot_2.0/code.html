@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>RentPilot 2.0 - 探索首页</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            appBg: '#F5F5F7',
+            cardBg: '#FFFFFF',
+            textPrimary: '#1D1D1F',
+            textSecondary: '#86868B',
+            brandBlue: '#007AFF',
+            brandBlueLight: '#E8F2FF',
+            chipDefault: '#EBEBED'
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang SC"', '"Hiragino Sans GB"', '"Microsoft YaHei"', 'Roboto', 'sans-serif']
+          },
+          boxShadow: {
+            'apple-sm': '0 2px 10px rgba(0, 0, 0, 0.03)',
+            'apple-card': '0 8px 30px rgba(0, 0, 0, 0.04)',
+            'apple-float': '0 12px 36px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04)',
+            'ai-glow': '0 10px 40px -10px rgba(0, 122, 255, 0.15), 0 4px 20px -5px rgba(175, 82, 222, 0.12)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Smooth Apple-style gradient border and subtle breathing glow */
+    .ai-card-glow {
+      position: relative;
+      background: #FFFFFF;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .ai-card-glow::before {
+      content: '';
+      position: absolute;
+      inset: -1.5px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(0, 122, 255, 0.35), rgba(175, 82, 222, 0.28), rgba(90, 200, 250, 0.25));
+      z-index: -1;
+      opacity: 0.65;
+      transition: opacity 0.4s ease, filter 0.4s ease;
+    }
+    .ai-card-glow:focus-within::before {
+      opacity: 1;
+      filter: drop-shadow(0 0 12px rgba(0, 122, 255, 0.25));
+      animation: subtlePulse 3s ease-in-out infinite alternate;
+    }
+    @keyframes subtlePulse {
+      0% {
+        opacity: 0.75;
+        transform: scale(1);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1.002);
+      }
+    }
+
+    /* Hide scrollbars for clean native appearance */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    * {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Tap states */
+    .tap-scale {
+      transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.18s ease;
+    }
+    .tap-scale:active {
+      transform: scale(0.97);
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body class="bg-appBg text-textPrimary font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-brandBlue/10 selection:text-brandBlue">
+
+  <!-- Android Status Bar Placeholder -->
+  <div class="w-full pt-3 px-7 flex justify-between items-center text-xs font-semibold tracking-tight text-textPrimary select-none z-30">
+    <span>09:41</span>
+    <div class="flex items-center space-x-1.5 opacity-80">
+      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L12 22l7.03-4.39C20.26 16.07 21 14.12 21 12c0-4.97-4.03-9-9-9zm0 2c3.87 0 7 3.13 7 7 0 1.54-.5 2.97-1.35 4.13L12 19.52l-5.65-3.39C5.5 14.97 5 13.54 5 12c0-3.87 3.13-7 7-7z"/>
+      </svg>
+      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98A16.88 16.88 0 0 0 12 4z"/>
+      </svg>
+      <svg class="w-4 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17 4h-3V2h-4v2H7v18h10V4z"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Main Scrollable Content Container -->
+  <main class="flex-1 px-6 pt-5 pb-32 max-w-md mx-auto w-full">
+
+    <!-- 1. 顶部品牌栏 -->
+    <header class="flex items-center justify-between mb-8">
+      <div class="flex items-center space-x-2">
+        <span class="text-[21px] font-bold tracking-tight text-textPrimary">RentPilot</span>
+        <span class="text-[10px] font-semibold text-brandBlue bg-brandBlueLight px-1.5 py-0.5 rounded-full tracking-wide">2.0</span>
+      </div>
+      <div class="relative group cursor-pointer tap-scale">
+        <img 
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBV9OIme8c9uKnldUdX3qjq9h8blTaFWl8sMGbGjQ0Nq7m8NxOYYbXh7Eox-2B042FxuLfoDB8mXvvdmMMaPQHZrgnvGgFGzZate-cKFES5qJtloIOzjoxABdXazZ2S7j-Ka1wPlj4oh46Rb8BZH-FbYPujcxp4B-Ng2WmGPDPNN4BCT5kklEpQ_-XVBSYIsFu_hwIwV2AP_iN9-47_zSHTHtNrU4hMg9wpIfwxI2oRcE_EqUpekAq" 
+          alt="User Profile" 
+          class="w-10 h-10 rounded-full object-cover ring-2 ring-white shadow-apple-sm transition duration-300"
+        />
+        <div class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 rounded-full ring-2 ring-white"></div>
+      </div>
+    </header>
+
+    <!-- 2. 页面大标题 (Apple 官网式 Typography) -->
+    <section class="mb-7 select-none">
+      <h1 class="text-[34px] font-bold tracking-tight text-textPrimary leading-[1.12] mb-1.5">
+        探索
+      </h1>
+      <p class="text-[17px] text-textSecondary font-normal tracking-tight">
+        下一段生活，从这里开始。
+      </p>
+    </section>
+
+    <!-- 3. AI 输入卡片 (视觉核心，Apple Intelligence 极简设计) -->
+    <section class="mb-5">
+      <div class="ai-card-glow rounded-[26px] p-5 shadow-apple-card relative transition-all">
+        
+        <!-- 卡片 Header 标签 -->
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center space-x-2">
+            <div class="w-5 h-5 rounded-full bg-gradient-to-tr from-brandBlue to-purple-500 flex items-center justify-center text-white text-[11px] shadow-sm">
+              ✨
+            </div>
+            <span class="text-[15px] font-semibold text-textPrimary tracking-tight">描述你理想的生活</span>
+          </div>
+          <span class="text-[11px] text-textSecondary/70 font-medium tracking-wide uppercase">AI Decision</span>
+        </div>
+
+        <!-- 文本输入区域 -->
+        <div class="relative">
+          <textarea 
+            id="ai-prompt-input"
+            rows="3"
+            placeholder="告诉我你的预算、工作地点和生活偏好……"
+            class="w-full bg-transparent text-[15px] text-textPrimary placeholder:text-textSecondary/80 placeholder:font-normal leading-relaxed resize-none focus:outline-none transition"
+          ></textarea>
+
+          <!-- 底部工具栏与发送按钮 -->
+          <div class="flex items-center justify-between pt-2 mt-1">
+            <div class="flex items-center space-x-2 text-[12px] text-textSecondary/80">
+              <span class="inline-flex items-center gap-1 text-[12px] bg-neutral-100 text-neutral-500 px-2.5 py-1 rounded-full">
+                <svg class="w-3.5 h-3.5 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                上海全域
+              </span>
+            </div>
+
+            <!-- 蓝色圆形发送按钮 -->
+            <button 
+              id="send-btn"
+              class="w-10 h-10 rounded-full bg-brandBlue text-white flex items-center justify-center shadow-md shadow-brandBlue/30 tap-scale transition hover:bg-blue-600 focus:outline-none"
+              title="开始规划生活方式"
+            >
+              <svg class="w-4 h-4 ml-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. 快捷偏好胶囊组 -->
+    <section class="mb-9">
+      <div class="flex items-center space-x-2.5 overflow-x-auto py-1">
+        
+        <!-- 选项 1: 预算优先 (默认激活) -->
+        <button 
+          onclick="toggleChip(this)" 
+          class="chip-btn active tap-scale px-4 py-2 rounded-full text-[13px] font-medium transition-all duration-200 bg-brandBlueLight text-brandBlue ring-1 ring-brandBlue/20"
+        >
+          预算优先
+        </button>
+
+        <!-- 选项 2: 通勤优先 -->
+        <button 
+          onclick="toggleChip(this)" 
+          class="chip-btn tap-scale px-4 py-2 rounded-full text-[13px] font-medium transition-all duration-200 bg-chipDefault/70 text-textSecondary hover:bg-chipDefault"
+        >
+          通勤优先
+        </button>
+
+        <!-- 选项 3: 生活品质 -->
+        <button 
+          onclick="toggleChip(this)" 
+          class="chip-btn tap-scale px-4 py-2 rounded-full text-[13px] font-medium transition-all duration-200 bg-chipDefault/70 text-textSecondary hover:bg-chipDefault"
+        >
+          生活品质
+        </button>
+
+      </div>
+    </section>
+
+    <!-- 5. 生活灵感 (极简文本卡片 + 优雅微交互) -->
+    <section>
+      <div class="flex items-center justify-between mb-3.5 px-0.5">
+        <h2 class="text-[17px] font-bold tracking-tight text-textPrimary">
+          为你寻找灵感
+        </h2>
+        <span class="text-xs text-textSecondary/70 font-medium">点击填入</span>
+      </div>
+
+      <div class="space-y-3">
+        <!-- 灵感卡片 1 -->
+        <div 
+          onclick="applyInspiration('第一次来上海租房，工作地点在静安寺，预算6000元，希望生活便利、周边有咖啡馆与跑步公园。')"
+          class="bg-cardBg rounded-[22px] p-5 shadow-apple-sm tap-scale cursor-pointer border border-black/[0.02] hover:shadow-apple-card transition group"
+        >
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-[16px] font-semibold text-textPrimary tracking-tight group-hover:text-brandBlue transition">
+              第一次去上海
+            </span>
+            <span class="text-[15px] font-medium text-textSecondary group-hover:text-brandBlue group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200">
+              ↗
+            </span>
+          </div>
+          <p class="text-[13px] text-textSecondary leading-normal font-normal">
+            从陌生城市开始新的生活。
+          </p>
+        </div>
+
+        <!-- 灵感卡片 2 -->
+        <div 
+          onclick="applyInspiration('想在上海体验换一种生活节奏，希望通勤时间30分钟内，有安静独立的小阳台，偏好法租界或衡山路老洋房周边街区。')"
+          class="bg-cardBg rounded-[22px] p-5 shadow-apple-sm tap-scale cursor-pointer border border-black/[0.02] hover:shadow-apple-card transition group"
+        >
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-[16px] font-semibold text-textPrimary tracking-tight group-hover:text-brandBlue transition">
+              换一种生活方式
+            </span>
+            <span class="text-[15px] font-medium text-textSecondary group-hover:text-brandBlue group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200">
+              ↗
+            </span>
+          </div>
+          <p class="text-[13px] text-textSecondary leading-normal font-normal">
+            找到适合自己的生活节奏。
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 6. 底部悬浮胶囊导航栏 (固定在底部，适配 Android 手势与圆角) -->
+  <div class="fixed bottom-0 left-0 right-0 z-40 flex flex-col items-center pointer-events-none pb-4">
+    <!-- 胶囊导航主体 -->
+    <nav class="pointer-events-auto bg-white/90 backdrop-blur-xl border border-white/60 shadow-apple-float rounded-full px-6 py-2.5 flex items-center justify-center space-x-10 max-w-xs mx-auto">
+      
+      <!-- 入口 1: 探索 (当前激活) -->
+      <button class="flex flex-col items-center space-y-1 tap-scale focus:outline-none">
+        <svg class="w-5 h-5 text-brandBlue" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14.5l-4-1 1-4 6.5-2.5L13 16.5z"/>
+        </svg>
+        <span class="text-[10px] font-semibold text-brandBlue tracking-tight">探索</span>
+      </button>
+
+      <!-- 入口 2: 居住方案 -->
+      <button class="flex flex-col items-center space-y-1 tap-scale opacity-60 hover:opacity-100 transition focus:outline-none">
+        <svg class="w-5 h-5 text-textSecondary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+        </svg>
+        <span class="text-[10px] font-medium text-textSecondary tracking-tight">居住方案</span>
+      </button>
+
+      <!-- 入口 3: 消息 -->
+      <button class="flex flex-col items-center space-y-1 tap-scale opacity-60 hover:opacity-100 transition focus:outline-none relative">
+        <svg class="w-5 h-5 text-textSecondary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+        </svg>
+        <span class="text-[10px] font-medium text-textSecondary tracking-tight">消息</span>
+        <div class="absolute -top-0.5 right-1 w-1.5 h-1.5 bg-brandBlue rounded-full"></div>
+      </button>
+
+    </nav>
+
+    <!-- Android 底部手势指示条安全区 -->
+    <div class="w-32 h-1 bg-black/20 rounded-full mt-2.5"></div>
+  </div>
+
+  <!-- 交互脚本 -->
+  <script>
+    // 快捷偏好单选切换
+    function toggleChip(button) {
+      const allChips = document.querySelectorAll('.chip-btn');
+      allChips.forEach(btn => {
+        btn.classList.remove('active', 'bg-brandBlueLight', 'text-brandBlue', 'ring-1', 'ring-brandBlue/20');
+        btn.classList.add('bg-chipDefault/70', 'text-textSecondary');
+      });
+
+      button.classList.add('active', 'bg-brandBlueLight', 'text-brandBlue', 'ring-1', 'ring-brandBlue/20');
+      button.classList.remove('bg-chipDefault/70', 'text-textSecondary');
+    }
+
+    // 灵感卡片点击快速填充
+    function applyInspiration(text) {
+      const textarea = document.getElementById('ai-prompt-input');
+      textarea.value = text;
+      textarea.focus();
+      
+      // 轻微视觉反馈
+      const card = textarea.closest('.ai-card-glow');
+      card.style.transform = 'scale(1.015)';
+      setTimeout(() => {
+        card.style.transform = 'scale(1)';
+      }, 200);
+    }
+
+    // 发送按钮反馈
+    document.getElementById('send-btn').addEventListener('click', () => {
+      const textarea = document.getElementById('ai-prompt-input');
+      const val = textarea.value.trim();
+      if (!val) {
+        textarea.placeholder = '请先告诉我您的居住偏好或选择下方灵感……';
+        textarea.focus();
+        return;
+      }
+      // 模拟进入 AI 工作台动效
+      const originalContent = document.getElementById('send-btn').innerHTML;
+      document.getElementById('send-btn').innerHTML = `
+        <svg class="animate-spin w-4 h-4 text-white" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+      `;
+      setTimeout(() => {
+        document.getElementById('send-btn').innerHTML = originalContent;
+      }, 1000);
+    });
+  </script>
+</body>
+</html>

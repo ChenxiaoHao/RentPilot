@@ -1,0 +1,1900 @@
+{
+ "url": "http://127.0.0.1:5178/#/listing/SH-MOCK-001248",
+ "at": "2026-10-31T08:03:25.188Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 320,
+   "height": 200,
+   "load": "load",
+   "screens": 12,
+   "filled": [
+    0.4,
+    0.76,
+    0.49,
+    0.47,
+    0.53,
+    0.41,
+    0.33,
+    0.43,
+    0.57,
+    0.66,
+    0.48,
+    0.39
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 320,
+     "h": 200
+    },
+    "page": {
+     "height": 2439,
+     "screens": 12.2,
+     "words": 112,
+     "img": 4,
+     "video": 0,
+     "canvas": 0,
+     "svg": 18,
+     "sections": 10,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 1,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "pexels-7060814.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "¥2,850 /月",
+     "words": 2,
+     "chars": 9,
+     "lines": 1,
+     "size": 20,
+     "vw": 6.3,
+     "font": "Manrope",
+     "weight": 600,
+     "tracking": -0.03,
+     "leading": 1.2,
+     "top": 148,
+     "tag": "div",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "莘庄镇西街317弄小区 · 1 居室",
+     "words": 4,
+     "lines": 1,
+     "size": 21,
+     "font": "Manrope"
+    },
+    "headings": [
+     {
+      "text": "¥2,850/月",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 31,
+      "vw": 9.7,
+      "font": "Manrope",
+      "weight": 600,
+      "tracking": -0.04,
+      "leading": 1.4,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.37,
+      "top": 319,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 1,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Manrope",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      18,
+      20,
+      21,
+      31
+     ],
+     "sizeCount": 10,
+     "notLoaded": [],
+     "body": {
+      "font": "Manrope",
+      "size": 13,
+      "leading": 1.9,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 5.6
+     },
+     "measureChars": 44,
+     "max": {
+      "size": 31,
+      "vw": 9.7,
+      "font": "Manrope",
+      "text": "¥2,850"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.02,
+     "centerShare": 0.03,
+     "smallText": 4
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#ffffff",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 1
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#ffffff",
+       "top": 0,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      },
+      {
+       "color": "#f5f5f5",
+       "top": 80,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 0.96
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#686868",
+       "share": 0.7
+      },
+      {
+       "color": "#191919",
+       "share": 0.29
+      },
+      {
+       "color": "#555555",
+       "share": 0.01
+      },
+      {
+       "color": "#ffffff",
+       "share": 0
+      }
+     ],
+     "button": {
+      "bg": "#191919",
+      "hsl": {
+       "h": 0,
+       "s": 0,
+       "l": 0.1
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 1,
+     "inHero": 1,
+     "radius": 16,
+     "height": 50,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "联系房东"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 12,
+     "hairlineSamples": [
+      "section.real-section 284px",
+      "section.real-section 284px",
+      "section.real-section 284px",
+      "div.ledger-total 284px",
+      "section.real-section 284px"
+     ],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 2,
+     "boxRadius": 20,
+     "squareMedia": 0,
+     "roundedMedia": 1,
+     "mediaRadius": 20,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 6,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 80
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.53
+     }
+    ],
+    "nav": {
+     "links": 0,
+     "fixed": false,
+     "height": 72,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "manrope"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 320,
+     "h": 200
+    },
+    "pageH": 2439,
+    "margins": {
+     "left": 18,
+     "right": 18
+    },
+    "sections": [
+     {
+      "sel": "button.real-detail-hero",
+      "tag": "button",
+      "top": 80,
+      "height": 210,
+      "words": 3,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 18,
+      "right": 18,
+      "textLeft": 38,
+      "textRight": 165,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.real-summary",
+      "tag": "section",
+      "top": 295,
+      "height": 320,
+      "words": 22,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "¥2,850",
+       "size": 31,
+       "tag": "p"
+      },
+      "left": 18,
+      "right": 18,
+      "textLeft": 18,
+      "textRight": 35,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.real-section",
+      "tag": "section",
+      "top": 615,
+      "height": 305,
+      "words": 8,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "位置与日常出行",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 18,
+      "right": 26,
+      "textLeft": 18,
+      "textRight": 26,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.real-section",
+      "tag": "section",
+      "top": 920,
+      "height": 348,
+      "words": 16,
+      "media": 0,
+      "middle": 51,
+      "heading": {
+       "text": "房间设施",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 18,
+      "right": 69,
+      "textLeft": 18,
+      "textRight": 69,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.real-section",
+      "tag": "section",
+      "top": 1268,
+      "height": 342,
+      "words": 14,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "租住费用",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 18,
+      "right": 18,
+      "textLeft": 18,
+      "textRight": 18,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.real-section",
+      "tag": "section",
+      "top": 1609,
+      "height": 253,
+      "words": 5,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": 18,
+      "right": 29,
+      "textLeft": 18,
+      "textRight": 29,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "article.rental-card",
+      "tag": "article",
+      "top": 1931,
+      "height": 187,
+      "words": 16,
+      "media": 0,
+      "middle": 12,
+      "heading": null,
+      "left": 18,
+      "right": 55,
+      "textLeft": 31,
+      "textRight": 55,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "article.rental-card",
+      "tag": "article",
+      "top": 2118,
+      "height": 187,
+      "words": 16,
+      "media": 0,
+      "middle": 12,
+      "heading": null,
+      "left": 18,
+      "right": 55,
+      "textLeft": 31,
+      "textRight": 55,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     }
+    ],
+    "gaps": [
+     {
+      "top": 588,
+      "height": 60
+     },
+     {
+      "top": 1584,
+      "height": 64
+     }
+    ],
+    "h1s": [
+     {
+      "text": "莘庄镇西街317弄小区 · 1 居室",
+      "size": 21,
+      "top": 375,
+      "firstScreen": false
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 18,
+      "n": 5
+     }
+    ],
+    "leftBlocks": 5,
+    "bodySize": 13,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 320,
+     "h": 200
+    },
+    "dark": false,
+    "ground": "#ffffff",
+    "sidebar": null,
+    "topbar": {
+     "h": 72
+    },
+    "canvas": {
+     "left": 18,
+     "right": 18
+    },
+    "hero": {
+     "text": "¥2,850 /月",
+     "words": 2,
+     "chars": 9,
+     "lines": 1,
+     "size": 20,
+     "vw": 6.3,
+     "font": "Manrope",
+     "weight": 600,
+     "tracking": -0.03,
+     "leading": 1.2,
+     "top": 148,
+     "tag": "div",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 6,
+     "firstScreen": 1,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 7,
+     "radii": [
+      [
+       0,
+       5
+      ],
+      [
+       20,
+       1
+      ],
+      [
+       15,
+       1
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 4,
+     "tabularShare": 1,
+     "kpiMax": 20
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.15,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      18,
+      20,
+      21,
+      31
+     ]
+    },
+    "title": {
+     "text": "莘庄镇西街317弄小区 · 1 居室",
+     "size": 21,
+     "top": 375
+    },
+    "colourShare": 0
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 402,
+   "height": 251,
+   "load": "load",
+   "screens": 10,
+   "filled": [
+    0.5,
+    0.6,
+    0.44,
+    0.59,
+    0.33,
+    0.31,
+    0.45,
+    0.62,
+    0.52,
+    0.38
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 402,
+     "h": 251
+    },
+    "page": {
+     "height": 2450,
+     "screens": 9.8,
+     "words": 112,
+     "img": 4,
+     "video": 0,
+     "canvas": 0,
+     "svg": 18,
+     "sections": 10,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 1,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "pexels-7060814.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "¥2,850 /月",
+     "words": 2,
+     "chars": 9,
+     "lines": 1,
+     "size": 23,
+     "vw": 5.7,
+     "font": "Manrope",
+     "weight": 600,
+     "tracking": -0.03,
+     "leading": 1.2,
+     "top": 196,
+     "tag": "div",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "莘庄镇西街317弄小区 · 1 居室",
+     "words": 4,
+     "lines": 1,
+     "size": 23,
+     "font": "Manrope"
+    },
+    "headings": [
+     {
+      "text": "¥2,850",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 23,
+      "vw": 5.7,
+      "font": "Manrope",
+      "weight": 600,
+      "tracking": -0.03,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.18,
+      "top": 196,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "¥2,850/月",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 31,
+      "vw": 7.7,
+      "font": "Manrope",
+      "weight": 600,
+      "tracking": -0.04,
+      "leading": 1.4,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.29,
+      "top": 359,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "莘庄镇西街317弄小区 · 1 居室",
+      "words": 4,
+      "chars": 18,
+      "lines": 1,
+      "size": 23,
+      "vw": 5.7,
+      "font": "Manrope",
+      "weight": 600,
+      "tracking": -0.035,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 415,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "¥7,050/月",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 23,
+      "vw": 5.7,
+      "font": "Manrope",
+      "weight": 600,
+      "tracking": -0.035,
+      "leading": 1.3,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.54,
+      "top": 2064,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "¥2,850/月",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 23,
+      "vw": 5.7,
+      "font": "Manrope",
+      "weight": 600,
+      "tracking": -0.035,
+      "leading": 1.3,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.54,
+      "top": 2256,
+      "tag": "b",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 5,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Manrope",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      18,
+      20,
+      23,
+      31
+     ],
+     "sizeCount": 10,
+     "notLoaded": [],
+     "body": {
+      "font": "Manrope",
+      "size": 13,
+      "leading": 1.9,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 5.6
+     },
+     "measureChars": 54,
+     "max": {
+      "size": 31,
+      "vw": 7.7,
+      "font": "Manrope",
+      "text": "¥2,850"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.02,
+     "centerShare": 0.03,
+     "smallText": 4
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#ffffff",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 1
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#ffffff",
+       "top": 0,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      },
+      {
+       "color": "#f5f5f5",
+       "top": 80,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 0.96
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#686868",
+       "share": 0.7
+      },
+      {
+       "color": "#191919",
+       "share": 0.29
+      },
+      {
+       "color": "#555555",
+       "share": 0.01
+      },
+      {
+       "color": "#ffffff",
+       "share": 0
+      }
+     ],
+     "button": {
+      "bg": "#191919",
+      "hsl": {
+       "h": 0,
+       "s": 0,
+       "l": 0.1
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 1,
+     "inHero": 1,
+     "radius": 16,
+     "height": 50,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "联系房东"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 12,
+     "hairlineSamples": [
+      "section.real-section 354px",
+      "section.real-section 354px",
+      "section.real-section 354px",
+      "div.ledger-total 354px",
+      "section.real-section 354px"
+     ],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 2,
+     "boxRadius": 20,
+     "squareMedia": 0,
+     "roundedMedia": 1,
+     "mediaRadius": 20,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 6,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 80
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.6
+     }
+    ],
+    "nav": {
+     "links": 0,
+     "fixed": false,
+     "height": 72,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "manrope"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 402,
+     "h": 251
+    },
+    "pageH": 2450,
+    "margins": {
+     "left": 24,
+     "right": 24
+    },
+    "sections": [
+     {
+      "sel": "button.real-detail-hero",
+      "tag": "button",
+      "top": 80,
+      "height": 250,
+      "words": 3,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 24,
+      "right": 24,
+      "textLeft": 44,
+      "textRight": 241,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.real-summary",
+      "tag": "section",
+      "top": 335,
+      "height": 325,
+      "words": 22,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "¥2,850",
+       "size": 31,
+       "tag": "p"
+      },
+      "left": 24,
+      "right": 24,
+      "textLeft": 24,
+      "textRight": 51,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.real-section",
+      "tag": "section",
+      "top": 660,
+      "height": 261,
+      "words": 8,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "位置与日常出行",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 44,
+      "textLeft": 24,
+      "textRight": 44,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.real-section",
+      "tag": "section",
+      "top": 921,
+      "height": 348,
+      "words": 16,
+      "media": 0,
+      "middle": 74,
+      "heading": {
+       "text": "房间设施",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 98,
+      "textLeft": 24,
+      "textRight": 98,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.real-section",
+      "tag": "section",
+      "top": 1269,
+      "height": 342,
+      "words": 14,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "租住费用",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 24,
+      "textLeft": 24,
+      "textRight": 24,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.real-section",
+      "tag": "section",
+      "top": 1611,
+      "height": 253,
+      "words": 27,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": 24,
+      "right": 27,
+      "textLeft": 24,
+      "textRight": 27,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "article.rental-card",
+      "tag": "article",
+      "top": 1933,
+      "height": 191,
+      "words": 16,
+      "media": 0,
+      "middle": 15,
+      "heading": {
+       "text": "¥7,050",
+       "size": 23,
+       "tag": "b"
+      },
+      "left": 24,
+      "right": 103,
+      "textLeft": 37,
+      "textRight": 103,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "article.rental-card",
+      "tag": "article",
+      "top": 2124,
+      "height": 191,
+      "words": 16,
+      "media": 0,
+      "middle": 15,
+      "heading": {
+       "text": "¥2,850",
+       "size": 23,
+       "tag": "b"
+      },
+      "left": 24,
+      "right": 103,
+      "textLeft": 37,
+      "textRight": 103,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "莘庄镇西街317弄小区 · 1 居室",
+      "size": 23,
+      "top": 415,
+      "firstScreen": false
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 24,
+      "n": 5
+     }
+    ],
+    "leftBlocks": 5,
+    "bodySize": 13,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 402,
+     "h": 251
+    },
+    "dark": false,
+    "ground": "#ffffff",
+    "sidebar": null,
+    "topbar": {
+     "h": 72
+    },
+    "canvas": {
+     "left": 24,
+     "right": 24
+    },
+    "hero": {
+     "text": "¥2,850 /月",
+     "words": 2,
+     "chars": 9,
+     "lines": 1,
+     "size": 23,
+     "vw": 5.7,
+     "font": "Manrope",
+     "weight": 600,
+     "tracking": -0.03,
+     "leading": 1.2,
+     "top": 196,
+     "tag": "div",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 6,
+     "firstScreen": 1,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 7,
+     "radii": [
+      [
+       0,
+       5
+      ],
+      [
+       20,
+       1
+      ],
+      [
+       15,
+       1
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 4,
+     "tabularShare": 1,
+     "kpiMax": 23
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.15,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      18,
+      20,
+      23,
+      31
+     ]
+    },
+    "title": {
+     "text": "莘庄镇西街317弄小区 · 1 居室",
+     "size": 23,
+     "top": 415
+    },
+    "colourShare": 0
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 3,
+   "filled": [
+    0.83,
+    0.81,
+    0.75
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 2632,
+     "screens": 2.6,
+     "words": 112,
+     "img": 4,
+     "video": 0,
+     "canvas": 0,
+     "svg": 18,
+     "sections": 10,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 3,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "pexels-7060814.jpg",
+      "pexels-5425123.jpg",
+      "pexels-7060814.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "莘庄镇西街317弄小区 · 1 居室",
+     "words": 4,
+     "chars": 18,
+     "lines": 1,
+     "size": 23,
+     "vw": 3,
+     "font": "Manrope",
+     "weight": 600,
+     "tracking": -0.04,
+     "leading": 1.6,
+     "top": 415,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "莘庄镇西街317弄小区 · 1 居室",
+     "words": 4,
+     "lines": 1,
+     "size": 23,
+     "font": "Manrope"
+    },
+    "headings": [
+     {
+      "text": "¥2,850/月",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 31,
+      "vw": 4,
+      "font": "Manrope",
+      "weight": 600,
+      "tracking": -0.04,
+      "leading": 1.4,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.15,
+      "top": 359,
+      "tag": "p",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 1,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": null,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Manrope",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      18,
+      20,
+      23,
+      31
+     ],
+     "sizeCount": 10,
+     "notLoaded": [],
+     "body": {
+      "font": "Manrope",
+      "size": 13,
+      "leading": 1.9,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 5.6
+     },
+     "measureChars": 91,
+     "max": {
+      "size": 31,
+      "vw": 4,
+      "font": "Manrope",
+      "text": "¥2,850"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.02,
+     "centerShare": 0.03,
+     "smallText": 4
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#ededed",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 0.93
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#ffffff",
+       "top": 0,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#686868",
+       "share": 0.7
+      },
+      {
+       "color": "#191919",
+       "share": 0.29
+      },
+      {
+       "color": "#555555",
+       "share": 0.01
+      },
+      {
+       "color": "#ffffff",
+       "share": 0
+      }
+     ],
+     "button": {
+      "bg": "#191919",
+      "hsl": {
+       "h": 0,
+       "s": 0,
+       "l": 0.1
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 1,
+     "inHero": 1,
+     "radius": 16,
+     "height": 50,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "联系房东"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 12,
+     "hairlineSamples": [
+      "section.real-section 592px",
+      "section.real-section 592px",
+      "section.real-section 592px",
+      "div.ledger-total 592px",
+      "section.real-section 592px"
+     ],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 4,
+     "boxRadius": 13,
+     "squareMedia": 0,
+     "roundedMedia": 3,
+     "mediaRadius": 13,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 6,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 80
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.19
+     }
+    ],
+    "nav": {
+     "links": 0,
+     "fixed": false,
+     "height": 72,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "manrope"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 2632,
+    "margins": {
+     "left": 88,
+     "right": 88
+    },
+    "sections": [
+     {
+      "sel": "button.real-detail-hero",
+      "tag": "button",
+      "top": 80,
+      "height": 250,
+      "words": 3,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 88,
+      "right": 88,
+      "textLeft": 108,
+      "textRight": 543,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.real-summary",
+      "tag": "section",
+      "top": 335,
+      "height": 325,
+      "words": 22,
+      "media": 0,
+      "middle": 125,
+      "heading": {
+       "text": "¥2,850",
+       "size": 31,
+       "tag": "p"
+      },
+      "left": 88,
+      "right": 88,
+      "textLeft": 88,
+      "textRight": 115,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.real-section",
+      "tag": "section",
+      "top": 660,
+      "height": 261,
+      "words": 8,
+      "media": 0,
+      "middle": 185,
+      "heading": {
+       "text": "位置与日常出行",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 88,
+      "right": 109,
+      "textLeft": 88,
+      "textRight": 109,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.real-section",
+      "tag": "section",
+      "top": 921,
+      "height": 348,
+      "words": 16,
+      "media": 0,
+      "middle": 153,
+      "heading": {
+       "text": "房间设施",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 88,
+      "right": 241,
+      "textLeft": 88,
+      "textRight": 241,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.real-section",
+      "tag": "section",
+      "top": 1269,
+      "height": 322,
+      "words": 14,
+      "media": 0,
+      "middle": 105,
+      "heading": {
+       "text": "租住费用",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 88,
+      "right": 88,
+      "textLeft": 88,
+      "textRight": 88,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.real-section",
+      "tag": "section",
+      "top": 1591,
+      "height": 253,
+      "words": 32,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": 88,
+      "right": 91,
+      "textLeft": 88,
+      "textRight": 91,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.real-section",
+      "tag": "section",
+      "top": 1844,
+      "height": 678,
+      "words": 34,
+      "media": 2,
+      "middle": 189,
+      "heading": {
+       "text": "¥7,050",
+       "size": 23,
+       "tag": "b"
+      },
+      "left": 88,
+      "right": 109,
+      "textLeft": 88,
+      "textRight": 109,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "莘庄镇西街317弄小区 · 1 居室",
+      "size": 23,
+      "top": 415,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 88,
+      "n": 5
+     }
+    ],
+    "leftBlocks": 5,
+    "bodySize": 13,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "dark": false,
+    "ground": "#ededed",
+    "sidebar": null,
+    "topbar": null,
+    "canvas": {
+     "left": 88,
+     "right": 88
+    },
+    "hero": {
+     "text": "莘庄镇西街317弄小区 · 1 居室",
+     "words": 4,
+     "chars": 18,
+     "lines": 1,
+     "size": 23,
+     "vw": 3,
+     "font": "Manrope",
+     "weight": 600,
+     "tracking": -0.04,
+     "leading": 1.6,
+     "top": 415,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 1,
+     "firstScreen": 1,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 11,
+     "radii": [
+      [
+       0,
+       7
+      ],
+      [
+       13,
+       2
+      ],
+      [
+       20,
+       1
+      ],
+      [
+       15,
+       1
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 4,
+     "tabularShare": 1,
+     "kpiMax": 23
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.15,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      18,
+      20,
+      23,
+      31
+     ]
+    },
+    "title": {
+     "text": "莘庄镇西街317弄小区 · 1 居室",
+     "size": 23,
+     "top": 415
+    },
+    "colourShare": 0.007
+   },
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "dev-server",
+   "width": 320,
+   "message": "This page is served by a development server (Vite, webpack or Next in dev mode).",
+   "fix": "Run the last gate on the production build too (vite build && vite preview, next build && next start, or the built index.html): minifiers and bundlers change the CSS a visitor receives.",
+   "alsoAt": [
+    402,
+    768
+   ]
+  }
+ ],
+ "images": [
+  {
+   "viewport": "mobile",
+   "width": 320,
+   "fold": "D:\\CODE\\RentPilot\\frontend\\.taste-skill\\listing-map-before\\mobile-320-fold.jpg",
+   "pages": [
+    "D:\\CODE\\RentPilot\\frontend\\.taste-skill\\listing-map-before\\mobile-320-page-01.jpg",
+    "D:\\CODE\\RentPilot\\frontend\\.taste-skill\\listing-map-before\\mobile-320-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 402,
+   "fold": "D:\\CODE\\RentPilot\\frontend\\.taste-skill\\listing-map-before\\mobile-402-fold.jpg",
+   "pages": [
+    "D:\\CODE\\RentPilot\\frontend\\.taste-skill\\listing-map-before\\mobile-402-page-01.jpg",
+    "D:\\CODE\\RentPilot\\frontend\\.taste-skill\\listing-map-before\\mobile-402-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "D:\\CODE\\RentPilot\\frontend\\.taste-skill\\listing-map-before\\tablet-fold.jpg",
+   "pages": [
+    "D:\\CODE\\RentPilot\\frontend\\.taste-skill\\listing-map-before\\tablet-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

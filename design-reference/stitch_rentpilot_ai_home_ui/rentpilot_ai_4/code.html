@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100%;margin:0;padding:0;background-color:#fcf9f8;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "tertiary-fixed": "#e2e2e2", "primary": "#000000", "tertiary-container": "#1b1b1b", "on-primary-fixed-variant": "#474747", "on-error": "#ffffff", "surface-container-lowest": "#ffffff", "surface-container-high": "#ebe7e7", "on-tertiary-fixed": "#1b1b1b", "surface": "#fcf9f8", "on-surface": "#1c1b1b", "on-secondary": "#ffffff", "on-background": "#1c1b1b", "inverse-surface": "#313030", "on-primary": "#ffffff", "secondary-container": "#e3e2e2", "secondary-fixed-dim": "#c7c6c6", "surface-container-highest": "#e5e2e1", "surface-bright": "#fcf9f8", "primary-fixed": "#e2e2e2", "secondary-fixed": "#e3e2e2", "on-secondary-fixed-variant": "#464747", "on-tertiary-container": "#848484", "tertiary-fixed-dim": "#c6c6c6", "on-surface-variant": "#4c4546", "on-tertiary": "#ffffff", "inverse-on-surface": "#f3f0ef", "surface-container-low": "#f6f3f2", "error-container": "#ffdad6", "inverse-primary": "#c6c6c6", "on-secondary-fixed": "#1b1c1c", "on-primary-container": "#848484", "surface-dim": "#dcd9d9", "outline": "#7e7576", "outline-variant": "#cfc4c5", "background": "#fcf9f8", "on-tertiary-fixed-variant": "#474747", "surface-container": "#f0edec", "secondary": "#5e5e5e", "primary-container": "#1b1b1b", "surface-variant": "#e5e2e1", "error": "#ba1a1a", "surface-tint": "#5e5e5e", "on-secondary-container": "#646464", "primary-fixed-dim": "#c6c6c6", "on-error-container": "#93000a", "on-primary-fixed": "#1b1b1b", "tertiary": "#000000" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-xs": "0.25rem", "margin-sm": "1rem", "margin": "1.25rem", "space-sm": "0.5rem", "space-lg": "1.5rem", "margin-lg": "2rem", "gutter": "1rem", "gutter-lg": "1.5rem", "space-xl": "2.25rem", "space-md": "1rem", "gutter-sm": "0.75rem" }, fontFamily: { "body-sm": ["Manrope"], "label-md": ["Manrope"], "title-md": ["Manrope"], "body-md": ["Manrope"], "title-lg": ["Manrope"], "headline-lg": ["Manrope"], "headline-lg-mobile": ["Manrope"], "display-lg": ["Manrope"], "headline-md": ["Manrope"], "body-lg": ["Manrope"], "label-lg": ["Manrope"], "label-sm": ["Manrope"] }, fontSize: { "body-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.01em", fontWeight: "400" }], "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "500" }], "title-md": ["16px", { lineHeight: "22px", letterSpacing: "-0.005em", fontWeight: "600" }], "body-md": ["14px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "400" }], "title-lg": ["18px", { lineHeight: "24px", letterSpacing: "-0.01em", fontWeight: "600" }], "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.025em", fontWeight: "700" }], "headline-lg-mobile": ["26px", { lineHeight: "34px", letterSpacing: "-0.02em", fontWeight: "700" }], "display-lg": ["40px", { lineHeight: "48px", letterSpacing: "-0.03em", fontWeight: "700" }], "headline-md": ["22px", { lineHeight: "30px", letterSpacing: "-0.015em", fontWeight: "600" }], "body-lg": ["16px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }], "label-lg": ["14px", { lineHeight: "18px", letterSpacing: "0.01em", fontWeight: "600" }], "label-sm": ["10px", { lineHeight: "12px", letterSpacing: "0.04em", fontWeight: "600" }] } } } }</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface min-h-screen flex flex-col font-body-md text-body-md"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.03)]"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><button aria-label="返回" class="w-11 h-11 -ml-2 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container active:scale-95 transition-all" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[22px]">arrow_back</span></button><h1 class="font-title-md text-title-md text-on-surface tracking-tight line-clamp-1">Plan Generating</h1></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="flex-1 w-full pt-16 pb-safe px-margin bg-surface"><div class="flex flex-col w-full pb-margin">
+<div class="mt-space-lg mb-space-xl flex flex-col items-center text-center px-space-sm">
+<div class="inline-flex items-center gap-space-xs px-margin-sm py-1.5 rounded-full bg-surface-container mb-space-md">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface">Spatial AI Engine v4.2</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight mb-space-xs">
+      正在为你规划居住方案
+    </h2>
+<p class="font-body-md text-body-md text-secondary">
+      基于张江工作地 · 预算 ¥4,800 · 通勤 30 分钟以内
+    </p>
+</div>
+<div class="w-full bg-surface-container-low rounded-xl p-space-lg mb-space-lg">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-secondary tracking-tight">推演总进度</span>
+<span class="px-1.5 py-0.5 rounded-full bg-surface-container-high font-label-sm text-label-sm text-on-surface">Realtime</span>
+</div>
+<span class="font-title-md text-title-md font-bold text-on-surface tabular-nums" id="progress-val">68%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-700 ease-out" id="progress-bar" style="width: 68%;"></div>
+</div>
+<div class="mt-space-md pt-space-md flex items-center justify-between font-label-sm text-label-sm text-secondary">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">tune</span>
+        多维约束重构
+      </span>
+<span class="tabular-nums" id="elapsed-time">耗时 02.4s</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-low rounded-xl p-space-lg mb-space-lg">
+<div class="flex items-center justify-between pb-space-md mb-space-sm">
+<span class="font-label-md text-label-md text-secondary uppercase tracking-wider">执行流水线</span>
+<span class="font-label-sm text-label-sm text-secondary tabular-nums">3 / 5 阶段</span>
+</div>
+<div class="space-y-space-md relative">
+<div class="flex items-start gap-space-md relative group">
+<div class="flex flex-col items-center">
+<div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<div class="w-[1.5px] h-8 bg-surface-container-highest my-1"></div>
+</div>
+<div class="flex-1 pt-0.5 min-w-0">
+<div class="flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-on-surface">理解居住需求</h3>
+<span class="font-label-sm text-label-sm text-secondary">已完成</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5 truncate">
+            已提炼：整租一居室、安静采光、近地铁
+          </p>
+</div>
+</div>
+<div class="flex items-start gap-space-md relative group">
+<div class="flex flex-col items-center">
+<div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<div class="w-[1.5px] h-8 bg-surface-container-highest my-1"></div>
+</div>
+<div class="flex-1 pt-0.5 min-w-0">
+<div class="flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-on-surface">分析通勤区域</h3>
+<span class="font-label-sm text-label-sm text-secondary">已完成</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5 truncate">
+            已锁定：2号线沿线、骑行可达生活圈
+          </p>
+</div>
+</div>
+<div class="flex items-start gap-space-md relative group">
+<div class="flex flex-col items-center">
+<div class="w-7 h-7 rounded-full bg-surface-container-highest flex items-center justify-center relative">
+<svg class="w-5 h-5 animate-spin text-primary" fill="none" viewbox="0 0 24 24">
+<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3"></circle>
+<path class="opacity-100" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" fill="currentColor"></path>
+</svg>
+</div>
+<div class="w-[1.5px] h-8 bg-surface-container-highest my-1"></div>
+</div>
+<div class="flex-1 pt-0.5 min-w-0">
+<div class="flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-on-surface font-bold flex items-center gap-1.5">
+              匹配合适房源
+              <span class="inline-block w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+</h3>
+<span class="font-label-sm text-label-sm font-semibold text-primary">进行中</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface font-medium mt-0.5">
+            正在比对周边 128 套房源真伪与通勤半径...
+          </p>
+<div class="mt-2.5 flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface tabular-nums">广兰路 42 套</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface tabular-nums">金科路 56 套</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-label-sm text-secondary tabular-nums">川沙 30 套</span>
+</div>
+</div>
+</div>
+<div class="flex items-start gap-space-md relative opacity-60">
+<div class="flex flex-col items-center">
+<div class="w-7 h-7 rounded-full bg-surface-container flex items-center justify-center text-outline">
+<span class="font-label-sm text-label-sm font-medium">4</span>
+</div>
+<div class="w-[1.5px] h-8 bg-surface-container-highest my-1"></div>
+</div>
+<div class="flex-1 pt-0.5 min-w-0">
+<div class="flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-secondary">评估居住风险</h3>
+<span class="font-label-sm text-label-sm text-outline">队列中</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5 truncate">
+            待计算：早晚高峰拥挤度与生活成本
+          </p>
+</div>
+</div>
+<div class="flex items-start gap-space-md relative opacity-40">
+<div class="flex flex-col items-center">
+<div class="w-7 h-7 rounded-full bg-surface-container flex items-center justify-center text-outline">
+<span class="font-label-sm text-label-sm font-medium">5</span>
+</div>
+</div>
+<div class="flex-1 pt-0.5 min-w-0">
+<div class="flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-secondary">生成生活方案</h3>
+<span class="font-label-sm text-label-sm text-outline">队列中</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5 truncate">
+            待合成：经济优先、通勤优先等定制模型
+          </p>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full bg-surface-container rounded-xl p-space-md flex items-start gap-space-sm mb-space-xl">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px] text-on-surface">auto_awesome</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between mb-0.5">
+<span class="font-label-md text-label-md font-semibold text-on-surface">AI 提示</span>
+<span class="font-label-sm text-label-sm text-secondary tabular-nums">倒计时 5s</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary leading-relaxed">
+        RentPilot 不只筛选房源，更通过时空多模态模型模拟真实生活节奏，预计还需约 5 秒。
+      </p>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center text-center opacity-70">
+<div class="flex items-center gap-1.5 mb-1 text-secondary">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span class="font-label-sm text-label-sm">纯离线同态加密计算 · 守护居住隐私</span>
+</div>
+<p class="font-label-sm text-label-sm text-outline">
+      数据来自城市公开政务路网 · 租住行为语义知识库
+    </p>
+</div>
+</div>
+<script>
+  (function () {
+    const progressBar = document.getElementById('progress-bar');
+    const progressVal = document.getElementById('progress-val');
+    const elapsedTime = document.getElementById('elapsed-time');
+
+    let current = 68;
+    let seconds = 2.4;
+
+    const timer = setInterval(() => {
+      seconds += 0.2;
+      if (elapsedTime) {
+        elapsedTime.textContent = '耗时 ' + seconds.toFixed(1) + 's';
+      }
+
+      if (current < 92) {
+        current += Math.floor(Math.random() * 4) + 1;
+        if (current > 92) current = 92;
+        if (progressBar) progressBar.style.width = current + '%';
+        if (progressVal) progressVal.textContent = current + '%';
+      }
+    }, 450);
+  })();
+</script></main></body></html>
